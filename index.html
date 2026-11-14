@@ -268,6 +268,26 @@ p { margin: 0; }
 .rodape nav a { color: var(--texto-suave); text-decoration: none; padding: 10px 0; }
 .rodape nav a:hover { color: var(--vermelho); }
 
+/* WhatsApp flutuante */
+.whats {
+  position: fixed; z-index: 6;
+  right: calc(20px + env(safe-area-inset-right, 0px));
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  display: inline-flex; align-items: center; gap: 10px;
+  min-height: 56px; padding: 0 22px 0 18px;
+  background: var(--vermelho); color: var(--preto);
+  font-weight: 600; font-size: 15px; text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  transition: background-color .18s ease, transform .18s ease;
+}
+.whats:hover { background: var(--vermelho-claro); color: var(--preto); transform: translateY(-2px); }
+.whats svg { flex: none; }
+@media (max-width: 560px) {
+  .whats { width: 56px; padding: 0; justify-content: center; }
+  .whats__texto { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+.rodape .miolo { padding-bottom: 96px; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .cursor { animation: none; }
@@ -276,9 +296,17 @@ p { margin: 0; }
 </style>
 <meta name="theme-color" content="#0A0A0A">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="JITS">
 <meta property="og:title" content="JITS · Soluções inteligentes para a sua empresa">
 <meta property="og:description" content="Sistemas, aplicativos e sites feitos sob medida, com atendimento próximo e suporte de verdade.">
 <meta property="og:url" content="https://jits.dev.br/">
+<meta property="og:image" content="https://jits.dev.br/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo jits_ com a frase Soluções inteligentes para a sua empresa">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jits.dev.br/og-image.png">
 <link rel="canonical" href="https://jits.dev.br/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
@@ -495,9 +523,14 @@ p { margin: 0; }
       <a href="#sobre">Sobre</a>
       <a href="#contato">Contato</a>
     </nav>
-    <span>© <span id="ano">2026</span> JITS · jits.dev.br · Fortaleza – CE</span>
+    <span class="rodape__copy">© <span id="ano">2026</span> JITS · jits.dev.br · Fortaleza – CE</span>
   </div>
 </footer>
+
+<a class="whats" href="https://wa.me/5585997361426?text=Ol%C3%A1%2C%20JITS!%20Vim%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener" aria-label="Conversar com a JITS no WhatsApp">
+  <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path><path d="M9.5 9.2c0 2.8 2.5 5.3 5.3 5.3l1-1.2-1.6-1-.9.7a3.6 3.6 0 0 1-2.3-2.3l.7-.9-1-1.6z"></path></svg>
+  <span class="whats__texto">WhatsApp</span>
+</a>
 
 <script>
   document.getElementById('ano').textContent = new Date().getFullYear();
