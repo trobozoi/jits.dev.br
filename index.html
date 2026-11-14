@@ -302,6 +302,8 @@ p { margin: 0; }
 .rodape nav { display: flex; flex-wrap: wrap; gap: 4px 24px; }
 .rodape nav a { color: var(--texto-suave); text-decoration: none; padding: 10px 0; }
 .rodape nav a:hover { color: var(--vermelho); }
+.rodape .social a { color: var(--branco); }
+.rodape .social a span { color: var(--vermelho); }
 
 /* WhatsApp flutuante */
 .whats {
@@ -357,7 +359,14 @@ p { margin: 0; }
   "email": "contato@jits.dev.br",
   "telephone": "+55-85-99736-1426",
   "foundingDate": "2015-01",
-  "founder": { "@type": "Person", "name": "Jailton Araújo" },
+  "founder": {
+    "@type": "Person",
+    "name": "Antônio Jailton Carvalho Araújo",
+    "sameAs": [
+      "https://www.linkedin.com/in/ant%C3%B4nio-jailton-carvalho-ara%C3%BAjo-0b551317",
+      "https://github.com/trobozoi"
+    ]
+  },
   "address": { "@type": "PostalAddress", "addressLocality": "Fortaleza", "addressRegion": "CE", "addressCountry": "BR" },
   "areaServed": "BR",
   "knowsAbout": ["Desenvolvimento de software sob medida", "Modernização de sistemas legados", "Aplicativos", "Sites e e-commerce", "Consultoria em TI"]
@@ -626,6 +635,10 @@ p { margin: 0; }
       <a href="#sobre">Sobre</a>
       <a href="#contato">Contato</a>
       <a href="politica-de-privacidade.html">Privacidade</a>
+    </nav>
+    <nav class="social" aria-label="Redes sociais">
+      <a href="https://www.linkedin.com/in/ant%C3%B4nio-jailton-carvalho-ara%C3%BAjo-0b551317" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+      <a href="https://github.com/trobozoi" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
     </nav>
     <span class="rodape__copy">© <span id="ano">2026</span> JITS · jits.dev.br · Fortaleza – CE</span>
   </div>
