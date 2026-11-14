@@ -52,7 +52,7 @@ body::before {
 a { color: var(--vermelho); }
 @media (hover: hover) and (pointer: fine) { a:hover { color: var(--vermelho-claro); } }
 :focus-visible { outline: 2px solid var(--vermelho); outline-offset: 3px; }
-h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; overflow-wrap: anywhere; hyphens: auto; }
 p { margin: 0; }
 
 .faixa { width: 100%; }
@@ -93,6 +93,12 @@ p { margin: 0; }
 .topo .miolo {
   display: flex; justify-content: space-between; align-items: center; gap: 16px;
   padding-block: 18px;
+}
+/* Zoom muito alto ou tela muito estreita: o cabeçalho quebra a linha em vez de vazar. */
+@media (max-width: 300px) {
+  .topo .miolo { flex-wrap: wrap; gap: 8px 12px; padding-block: 12px; }
+  .menu { flex-wrap: wrap; gap: 8px; }
+  .menu .botao { white-space: normal; }
 }
 .menu { display: flex; align-items: center; gap: 4px 28px; font-size: 15px; }
 .menu a { color: var(--branco); text-decoration: none; padding: 12px 0; }
@@ -135,6 +141,7 @@ p { margin: 0; }
 .hero h1 .cursor { width: 0.42em; height: 0.16em; margin-left: 0.08em; vertical-align: baseline; }
 .hero__apoio { font-size: 19px; color: var(--texto); max-width: 36rem; }
 .acoes { display: flex; flex-wrap: wrap; gap: 14px; }
+.botao { max-width: 100%; text-align: center; overflow-wrap: anywhere; }
 
 /* Terminal */
 .terminal {
@@ -251,6 +258,7 @@ p { margin: 0; }
   background: #000; border: 1px solid #333; border-radius: clamp(14px, 2.4vw, 26px);
   padding: clamp(4px, 0.8vw, 7px); box-shadow: 0 24px 48px rgba(0, 0, 0, .45);
 }
+.celular .projeto__falha { border-radius: clamp(10px, 1.9vw, 20px); font-size: 11px; padding: 8px; }
 .celular img { display: block; width: 100%; height: auto; aspect-ratio: 606 / 1150; border-radius: clamp(10px, 1.9vw, 20px); }
 .celular:nth-child(2) { transform: translateY(-28px); }
 .celulares-wrap figcaption { font-family: var(--f-mono); font-size: 12px; color: var(--texto-suave); text-align: center; margin-top: 12px; }
@@ -284,7 +292,7 @@ p { margin: 0; }
 /* Tecnologias */
 .stack { display: flex; flex-direction: column; gap: 20px; padding-top: 8px; }
 .stack__titulo { font-size: 21px; font-weight: 700; color: var(--branco); }
-.stack__grade { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 24px 32px; }
+.stack__grade { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr)); gap: 24px 32px; }
 .stack__grupo { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
 .stack dt { font-family: var(--f-mono); font-size: 13px; color: var(--vermelho); }
 .stack dd { margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
@@ -473,6 +481,22 @@ a.canal__valor { color: inherit; text-decoration: none; }
 .outros a { font-family: var(--f-mono); font-size: 14px; color: var(--texto); text-decoration: none; border: 1px solid var(--linha); padding: 10px 16px; min-height: 44px; display: inline-flex; align-items: center; }
 @media (hover: hover) and (pointer: fine) { .outros a:hover { color: var(--vermelho); border-color: var(--vermelho); } }
 
+
+/* Zoom muito alto (ex.: 200% em celular) ou tela muito estreita: títulos menores para não partir palavras. */
+@media (max-width: 300px) {
+  .hero h1, .pagina-hero h1 { font-size: 1.5rem; }
+  .secao h2, .chamada h2, .contato h2, .vitrine h3, .projeto h3 { font-size: 1.375rem; }
+  .servico h3, .etapa h3, .stack__titulo, .faq summary, .form__titulo { font-size: 1rem; }
+  .servico { padding: 20px 14px 22px; }
+  .etapa { padding-right: 0; }
+  .vitrine { padding: 10px; }
+  .vitrine h3, .exemplo h3 { font-size: .9375rem; }
+  .projetos .projeto h3 { font-size: 1.125rem; }
+  .partes li { padding: 12px; }
+  .partes strong { font-size: .9375rem; }
+  .botao { padding: 12px 14px; }
+  .form { padding: 18px 12px; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -948,7 +972,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
   document.getElementById('ano').textContent = new Date().getFullYear();
 
   // Se a imagem de um projeto não carregar, mostra o nome do projeto no lugar, com a mesma altura.
-  document.querySelectorAll('.projeto__tela img').forEach(function (img) {
+  document.querySelectorAll('.projeto__tela img, .celular img').forEach(function (img) {
     function trocar() {
       var caixa = document.createElement('span');
       caixa.className = 'projeto__falha';
