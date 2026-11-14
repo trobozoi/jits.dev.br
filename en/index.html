@@ -1,0 +1,1106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>JITS · Smart solutions for your company</title>
+<meta name="description" content="JITS: smart solutions for your company. Custom software, mobile apps, websites and IT consulting, from Brazil to clients worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: uma coluna escura de 1200px; o "cursor" vermelho da marca é o fio condutor — aparece no logo, no hero e em cada bloco. */
+:root {
+  --preto: #0A0A0A;
+  --grafite: #1A1A1A;
+  --grafite-2: #141414;
+  --linha: #262626;
+  --vermelho: #FF2B2B;
+  --vermelho-claro: #FF6A6A;
+  --branco: #F2F2F2;
+  --texto: #D0D0D0;
+  --texto-suave: #A8A8A8;
+  --f-display: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --f-texto: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+  --largura: 1200px;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+img { max-width: 100%; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+body {
+  background: var(--preto);
+  color: var(--branco);
+  font-family: var(--f-texto);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--preto);
+}
+a { color: var(--vermelho); }
+a:hover { color: var(--vermelho-claro); }
+:focus-visible { outline: 2px solid var(--vermelho); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; }
+p { margin: 0; }
+
+.faixa { width: 100%; }
+.miolo {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding-left: max(24px, env(safe-area-inset-left, 0px));
+  padding-right: max(24px, env(safe-area-inset-right, 0px));
+}
+@media (max-width: 480px) {
+  .miolo {
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+}
+
+/* Marca */
+.logo { display: inline-flex; align-items: flex-end; gap: 4px; text-decoration: none; }
+.logo__nome {
+  font-family: var(--f-display); font-weight: 700; font-size: 38px;
+  line-height: 0.8; letter-spacing: -0.04em; color: var(--vermelho);
+}
+.cursor {
+  display: inline-block; background: var(--vermelho);
+  animation: piscar 1.1s steps(1, end) infinite;
+}
+.logo .cursor { width: 12px; height: 5px; margin-bottom: 1px; }
+@keyframes piscar { 50% { opacity: 0; } }
+
+/* Cabeçalho */
+.topo {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--linha);
+}
+.topo .miolo {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding-block: 18px;
+}
+.menu { display: flex; align-items: center; gap: 4px 28px; font-size: 15px; }
+.menu a { color: var(--branco); text-decoration: none; padding: 12px 0; }
+.menu a:hover { color: var(--vermelho); }
+.menu .botao { padding: 12px 20px; }
+@media (max-width: 900px) { .menu .menu__link { display: none; } }
+
+.botao {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 48px; padding: 14px 28px;
+  font-family: var(--f-texto); font-weight: 600; font-size: 16px;
+  text-decoration: none; border: 1px solid var(--vermelho); cursor: pointer;
+  transition: background-color .18s ease, color .18s ease, transform .18s ease;
+}
+.botao--cheio { background: var(--vermelho); color: var(--preto) !important; }
+.botao--cheio:hover { background: var(--vermelho-claro); border-color: var(--vermelho-claro); }
+.botao--vazio { background: transparent; color: var(--vermelho); }
+.botao--vazio:hover { background: var(--vermelho); color: var(--preto); }
+.botao:active { transform: translateY(1px); }
+
+/* Hero */
+.hero .miolo {
+  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 56px; align-items: center;
+  padding-block: 104px 112px;
+}
+@media (max-width: 900px) {
+  .hero .miolo { grid-template-columns: minmax(0, 1fr); padding-block: 64px 80px; gap: 48px; }
+}
+.hero__texto { display: flex; flex-direction: column; gap: 28px; min-width: 0; }
+.rotulo {
+  font-family: var(--f-display); font-weight: 500; font-size: 14px;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--texto-suave);
+}
+.hero h1 {
+  font-weight: 700; font-size: clamp(2.5rem, 6.2vw, 5rem);
+  line-height: 1.02; letter-spacing: -0.03em; color: var(--vermelho);
+}
+.hero h1 .cursor { width: 0.42em; height: 0.16em; margin-left: 0.08em; vertical-align: baseline; }
+.hero__apoio { font-size: 19px; color: var(--texto); max-width: 36rem; }
+.acoes { display: flex; flex-wrap: wrap; gap: 14px; }
+
+/* Terminal */
+.terminal {
+  background: var(--grafite); border: 1px solid #2E2E2E;
+  font-family: var(--f-mono); font-size: 14px; line-height: 1.75;
+  min-width: 0;
+}
+.terminal__barra {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 10px 16px; border-bottom: 1px solid #2E2E2E;
+  color: var(--texto-suave); font-size: 12px;
+}
+.terminal__pontos { display: flex; gap: 6px; }
+.terminal__pontos span { width: 10px; height: 10px; background: #3A3A3A; display: block; }
+.terminal__pontos span:first-child { background: var(--vermelho); }
+.terminal__corpo { padding: 20px 20px 24px; overflow-x: auto; }
+.terminal__corpo p { white-space: pre; }
+.t-pasta { color: var(--texto-suave); }
+.t-cmd { color: var(--branco); }
+.t-ok { color: var(--vermelho); }
+.t-saida { color: var(--texto); }
+.terminal .cursor { width: 9px; height: 17px; vertical-align: -3px; }
+/* Enquanto digita, o cursor fica aceso; pisca só quando o terminal está parado. */
+.terminal .cursor.digitando { animation: none; opacity: 1; }
+.terminal__corpo p.oculta { visibility: hidden; }
+.terminal__repetir {
+  background: none; border: 0; padding: 4px 0; min-height: 28px; cursor: pointer;
+  font: inherit; color: var(--texto-suave);
+}
+.terminal__repetir:hover { color: var(--vermelho); }
+.terminal__barra .terminal__repetir { margin-left: auto; }
+.terminal__repetir[hidden] { display: none; }
+
+/* Seções */
+.secao .miolo { padding-block: 96px; display: flex; flex-direction: column; gap: 48px; }
+@media (max-width: 640px) { .secao .miolo { padding-block: 72px; gap: 36px; } }
+.secao--grafite { background: var(--grafite-2); border-block: 1px solid var(--linha); }
+.secao__cabeca { display: flex; flex-direction: column; gap: 14px; max-width: 44rem; }
+.secao h2 {
+  font-weight: 700; font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1.08; letter-spacing: -0.02em; color: var(--vermelho);
+}
+.secao__cabeca p { font-size: 18px; color: var(--texto); }
+
+/* Serviços */
+.servicos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 1040px) { .servicos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .servicos { grid-template-columns: minmax(0, 1fr); } }
+.servico {
+  background: var(--preto); border: 1px solid var(--linha);
+  padding: 30px 28px 32px; display: flex; flex-direction: column; gap: 14px;
+  transition: border-color .2s ease;
+}
+.servico:hover { border-color: var(--vermelho); }
+.servico__marca { width: 28px; height: 10px; background: var(--vermelho); display: block; }
+.servico__rota { font-family: var(--f-mono); font-size: 13px; color: var(--texto-suave); }
+.servico h3 { font-size: 22px; font-weight: 700; color: var(--branco); line-height: 1.2; }
+.servico p { font-size: 15px; color: var(--texto-suave); }
+.servico ul { margin: 4px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: var(--texto); }
+.servico li { display: flex; gap: 10px; align-items: baseline; }
+.servico li::before { content: ""; flex: none; width: 8px; height: 3px; background: var(--vermelho); transform: translateY(-3px); }
+
+/* Portfólio */
+.projetos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+@media (max-width: 860px) { .projetos { grid-template-columns: minmax(0, 1fr); } }
+.projeto { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
+.projeto__tela {
+  display: block; overflow: hidden; background: var(--grafite); text-decoration: none;
+  border: 1px solid #2E2E2E; transition: border-color .2s ease;
+}
+.projeto__barra {
+  display: flex; align-items: center; gap: 14px; padding: 10px 14px;
+  border-bottom: 1px solid #2E2E2E; font-family: var(--f-mono); font-size: 12px; color: var(--texto-suave);
+}
+.projeto__url { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.projeto__tela img {
+  display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top;
+  transition: transform .5s cubic-bezier(.2, .7, .2, 1);
+}
+.projeto:hover .projeto__tela { border-color: var(--vermelho); }
+.projeto:hover .projeto__tela img { transform: scale(1.03); }
+.projeto__info { display: flex; flex-direction: column; gap: 12px; }
+.projeto h3 { font-size: 24px; font-weight: 700; color: var(--branco); line-height: 1.2; }
+.projeto__info > p { font-size: 16px; color: var(--texto-suave); max-width: 60ch; }
+.projeto__tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.projeto__tags li { font-family: var(--f-mono); font-size: 12px; color: var(--texto); border: 1px solid var(--linha); padding: 4px 10px; }
+.projeto__tags .projeto__tag--conceito { color: var(--vermelho); border-color: var(--vermelho); }
+.projeto__link {
+  align-self: flex-start; display: inline-flex; align-items: center; gap: 8px;
+  min-height: 44px; font-weight: 600; text-decoration: none; color: var(--vermelho);
+}
+.projeto__link:hover { color: var(--vermelho-claro); }
+.projeto__links { display: flex; flex-wrap: wrap; column-gap: 28px; }
+.projeto__links .projeto__link { align-self: auto; }
+.projeto__link svg { width: 18px; height: 18px; flex: none; }
+.vitrine {
+  border: 1px solid var(--linha); background: var(--grafite-2);
+  padding: clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 40px;
+}
+.vitrine__topo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+@media (max-width: 960px) { .vitrine__topo { grid-template-columns: minmax(0, 1fr); gap: 36px; } }
+.partes { list-style: none; margin: 4px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--linha); border: 1px solid var(--linha); }
+@media (max-width: 480px) { .partes { grid-template-columns: minmax(0, 1fr); } }
+.partes li { background: var(--grafite-2); padding: 16px 18px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.partes strong { font-family: var(--f-display); font-size: 17px; color: var(--branco); }
+.partes span { font-family: var(--f-mono); font-size: 12px; color: var(--texto-suave); }
+.partes a { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; min-height: 36px; font-size: 14px; font-weight: 600; color: var(--vermelho); text-decoration: none; }
+.partes a:hover { color: var(--vermelho-claro); }
+.partes svg { width: 16px; height: 16px; flex: none; }
+.celulares { display: flex; justify-content: center; align-items: flex-end; gap: clamp(10px, 2vw, 20px); margin: 0; }
+.celular {
+  flex: 1 1 0; max-width: 190px; min-width: 0; margin: 0;
+  background: #000; border: 1px solid #333; border-radius: clamp(14px, 2.4vw, 26px);
+  padding: clamp(4px, 0.8vw, 7px); box-shadow: 0 24px 48px rgba(0, 0, 0, .45);
+}
+.celular img { display: block; width: 100%; height: auto; aspect-ratio: 606 / 1150; border-radius: clamp(10px, 1.9vw, 20px); }
+.celular:nth-child(2) { transform: translateY(-28px); }
+.celulares-wrap figcaption { font-family: var(--f-mono); font-size: 12px; color: var(--texto-suave); text-align: center; margin-top: 12px; }
+.telas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+@media (max-width: 760px) { .telas { grid-template-columns: minmax(0, 1fr); } }
+.telas figure { margin: 0; min-width: 0; }
+.telas .tela--larga { grid-column: 1 / -1; }
+.telas .projeto__tela { border-color: #2E2E2E; }
+.telas .tela--larga img { aspect-ratio: 1600 / 592; }
+.vitrine.projeto:hover .projeto__tela { border-color: #2E2E2E; }
+.vitrine.projeto:hover .projeto__tela img { transform: none; }
+.telas figure:hover .projeto__tela { border-color: var(--vermelho); }
+.telas figure:hover .projeto__tela img { transform: scale(1.03); }
+.celulares { padding-top: 28px; }
+@media (max-width: 760px) { .telas .tela--larga img { aspect-ratio: 1000 / 592; object-position: left top; } }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Como trabalhamos */
+.etapas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--linha); }
+@media (max-width: 900px) { .etapas { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .etapas { grid-template-columns: minmax(0, 1fr); } }
+.etapa { padding: 28px 28px 8px 0; display: flex; flex-direction: column; gap: 12px; }
+.etapa__num { font-family: var(--f-mono); font-size: 13px; color: var(--vermelho); }
+.etapa h3 { font-size: 21px; font-weight: 700; color: var(--branco); }
+.etapa p { font-size: 15px; color: var(--texto-suave); max-width: 30ch; }
+
+/* Tecnologias */
+.stack { display: flex; flex-direction: column; gap: 20px; padding-top: 8px; }
+.stack__titulo { font-size: 21px; font-weight: 700; color: var(--branco); }
+.stack__grade { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 24px 32px; }
+.stack__grupo { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.stack dt { font-family: var(--f-mono); font-size: 13px; color: var(--vermelho); }
+.stack dd { margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.stack dd span {
+  font-family: var(--f-mono); font-size: 13px; color: var(--texto);
+  border: 1px solid var(--linha); padding: 4px 10px;
+}
+
+/* Sobre */
+.sobre { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 64px; align-items: center; }
+@media (max-width: 860px) { .sobre { grid-template-columns: minmax(0, 1fr); gap: 40px; } }
+.sobre__texto { display: flex; flex-direction: column; gap: 20px; }
+.sobre__texto p { font-size: 18px; color: var(--texto); max-width: 60ch; }
+.valores { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 12px; }
+@media (max-width: 560px) { .valores { grid-template-columns: minmax(0, 1fr); } }
+.valor { border-top: 2px solid var(--vermelho); padding-top: 14px; display: flex; flex-direction: column; gap: 4px; }
+.valor strong { font-family: var(--f-display); font-size: 17px; color: var(--branco); }
+.valor span { font-size: 14px; color: var(--texto-suave); }
+.icone-marca {
+  width: min(260px, 100%); aspect-ratio: 1; max-width: 100%; margin: 0 auto;
+  background: var(--vermelho); display: grid; place-items: center;
+}
+/* Como um "j_": o cursor desce até a altura do pé do j. */
+.icone-marca__j {
+  font-family: var(--f-display); font-weight: 700; font-size: clamp(120px, 17vw, 180px);
+  line-height: 1; color: var(--preto); white-space: nowrap; transform: translateY(-0.06em);
+}
+.icone-marca .cursor {
+  background: var(--preto); width: 0.28em; height: 0.11em;
+  margin-left: 0.06em; vertical-align: -0.2em;
+}
+
+/* Contato */
+.contato { background: var(--vermelho); color: var(--preto); }
+.contato .miolo {
+  padding-block: 88px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 48px; align-items: start;
+}
+.contato__texto { display: flex; flex-direction: column; gap: 32px; min-width: 0; }
+
+/* Formulário (cartão preto sobre a faixa vermelha) */
+.form {
+  background: var(--preto); color: var(--branco);
+  padding: 32px; display: flex; flex-direction: column; gap: 18px; min-width: 0;
+}
+@media (max-width: 480px) { .form { padding: 24px 18px; } }
+.form__titulo { font-size: 24px; font-weight: 700; color: var(--branco); }
+.duas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 560px) { .duas { grid-template-columns: minmax(0, 1fr); } }
+.campo { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.campo label { font-size: 14px; font-weight: 500; color: var(--texto); }
+.opcional { color: var(--texto-suave); font-weight: 400; }
+.campo input, .campo select, .campo textarea {
+  width: 100%; font: inherit; font-size: 16px; color: var(--branco);
+  background: var(--grafite); border: 1px solid #333333; border-radius: 0;
+  padding: 12px 14px; min-height: 48px;
+}
+.campo textarea { resize: vertical; min-height: 128px; line-height: 1.5; }
+.campo input::placeholder, .campo textarea::placeholder { color: #7A7A7A; }
+.campo input:focus, .campo select:focus, .campo textarea:focus { border-color: var(--vermelho); }
+.campo [aria-invalid="true"] { border-color: var(--vermelho-claro); }
+.contato .form :focus-visible { outline-color: var(--vermelho); }
+.hp { display: none; }
+.aceite { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--texto); }
+.aceite input { width: 20px; height: 20px; margin: 1px 0 0; flex: none; accent-color: var(--vermelho); }
+.aceite a { color: var(--branco); }
+.aceite a:hover { color: var(--vermelho); }
+.form .botao { align-self: flex-start; }
+.form .botao:disabled { opacity: .6; cursor: progress; }
+.form__status { font-size: 15px; min-height: 1.5em; }
+.form__status.ok { color: var(--branco); }
+.form__status.ok::before { content: ""; display: inline-block; width: 14px; height: 5px; background: var(--vermelho); margin-right: 10px; vertical-align: middle; }
+.form__status.erro { color: var(--vermelho-claro); }
+@media (max-width: 860px) { .contato .miolo { grid-template-columns: minmax(0, 1fr); padding-block: 72px; } }
+.contato h2 { font-weight: 700; font-size: clamp(2rem, 4.4vw, 3.2rem); line-height: 1.06; letter-spacing: -0.02em; }
+.contato__apoio { font-size: 18px; margin-top: 18px; max-width: 34rem; font-weight: 500; }
+.canais { display: flex; flex-direction: column; gap: 12px; }
+.canal {
+  background: var(--preto); color: var(--branco);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 16px 16px 16px 20px; min-width: 0;
+}
+.canal__info { display: flex; flex-direction: column; min-width: 0; }
+.canal__tipo { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--texto-suave); }
+.canal__valor { font-size: 18px; font-weight: 600; overflow-wrap: anywhere; user-select: all; }
+.copiar {
+  flex: none; min-height: 44px; min-width: 88px; padding: 0 14px;
+  background: transparent; color: var(--branco); border: 1px solid #3A3A3A;
+  font: 500 14px var(--f-texto); cursor: pointer;
+}
+.copiar:hover { border-color: var(--vermelho); color: var(--vermelho); }
+.contato :focus-visible { outline-color: var(--preto); }
+
+/* Rodapé */
+.rodape .miolo {
+  padding-block: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+  gap: 20px; font-size: 14px; color: var(--texto-suave);
+}
+.rodape nav { display: flex; flex-wrap: wrap; gap: 4px 24px; }
+.rodape nav a { color: var(--texto-suave); text-decoration: none; padding: 10px 0; }
+.rodape nav a:hover { color: var(--vermelho); }
+.rodape .social { gap: 8px; }
+.rodape .social a {
+  color: var(--branco); width: 44px; height: 44px; padding: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: color .18s ease;
+}
+.rodape .social a:hover { color: var(--vermelho); }
+
+/* WhatsApp flutuante */
+.whats {
+  position: fixed; z-index: 6;
+  right: calc(20px + env(safe-area-inset-right, 0px));
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  width: 60px; height: 60px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #25D366; color: #FFFFFF;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.whats:hover { color: #FFFFFF; transform: scale(1.06); box-shadow: 0 8px 26px rgba(0, 0, 0, 0.55); }
+.whats:focus-visible { outline-color: #25D366; }
+.whats svg { flex: none; }
+.rodape .miolo { padding-bottom: 96px; }
+
+/* Troca de idioma */
+.menu .idioma {
+  font-family: var(--f-mono); font-size: 13px; color: var(--texto-suave);
+  border: 1px solid var(--linha); padding: 0 10px; min-height: 44px; min-width: 44px;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.menu .idioma:hover { color: var(--vermelho); border-color: var(--vermelho); }
+.servico__mais {
+  margin-top: auto; padding-top: 10px; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px;
+  min-height: 44px; font-weight: 600; font-size: 15px; text-decoration: none; color: var(--vermelho);
+}
+.servico__mais:hover { color: var(--vermelho-claro); }
+
+/* Páginas de serviço */
+.pagina-hero .miolo { padding-block: 88px 96px; display: flex; flex-direction: column; gap: 26px; }
+@media (max-width: 640px) { .pagina-hero .miolo { padding-block: 56px 64px; } }
+.pagina-hero .rotulo a { color: inherit; text-decoration: none; }
+.pagina-hero .rotulo a:hover { color: var(--vermelho); }
+.pagina-hero h1 {
+  font-weight: 700; font-size: clamp(2.25rem, 5.4vw, 4rem); line-height: 1.04;
+  letter-spacing: -0.03em; color: var(--vermelho); max-width: 18ch;
+}
+.pagina-hero h1 .cursor { width: 0.42em; height: 0.16em; margin-left: 0.08em; }
+.pagina-hero .hero__apoio { max-width: 44rem; }
+.servicos--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1040px) { .servicos--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .servicos--3 { grid-template-columns: minmax(0, 1fr); } }
+.secao--grafite .servico { background: var(--preto); }
+.secao:not(.secao--grafite) .servico { background: var(--grafite-2); }
+.sinais { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 40px; max-width: 60rem; }
+@media (max-width: 760px) { .sinais { grid-template-columns: minmax(0, 1fr); } }
+.sinais li { display: flex; gap: 14px; align-items: baseline; font-size: 17px; color: var(--texto); }
+.sinais li::before { content: ""; flex: none; width: 12px; height: 4px; background: var(--vermelho); transform: translateY(-4px); }
+.exemplo { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+@media (max-width: 860px) { .exemplo { grid-template-columns: minmax(0, 1fr); gap: 28px; } }
+.exemplo .projeto__info > p { font-size: 17px; color: var(--texto); }
+.faq { display: flex; flex-direction: column; max-width: 52rem; border-top: 1px solid var(--linha); }
+.faq details { border-bottom: 1px solid var(--linha); }
+.faq summary {
+  cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 20px;
+  padding: 20px 0; min-height: 44px; font-family: var(--f-display); font-weight: 700; font-size: 19px; color: var(--branco);
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; flex: none; font-family: var(--f-mono); font-weight: 400; font-size: 22px; color: var(--vermelho); }
+.faq details[open] summary::after { content: "–"; }
+.faq summary:hover { color: var(--vermelho); }
+.faq details p { padding: 0 0 22px; color: var(--texto); max-width: 62ch; }
+.chamada { background: var(--vermelho); color: var(--preto); }
+.chamada .miolo { padding-block: 80px; display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
+.chamada h2 { font-weight: 700; font-size: clamp(2rem, 4.4vw, 3rem); line-height: 1.06; letter-spacing: -0.02em; max-width: 20ch; }
+.chamada p { font-size: 18px; font-weight: 500; max-width: 36rem; }
+.chamada .botao { background: var(--preto); color: var(--branco) !important; border-color: var(--preto); }
+.chamada .botao:hover { background: #2A2A2A; border-color: #2A2A2A; }
+.chamada .botao--claro { background: transparent; color: var(--preto) !important; }
+.chamada .botao--claro:hover { background: var(--preto); color: var(--branco) !important; }
+.chamada :focus-visible { outline-color: var(--preto); }
+.outros { display: flex; flex-wrap: wrap; gap: 12px; }
+.outros a { font-family: var(--f-mono); font-size: 14px; color: var(--texto); text-decoration: none; border: 1px solid var(--linha); padding: 10px 16px; min-height: 44px; display: inline-flex; align-items: center; }
+.outros a:hover { color: var(--vermelho); border-color: var(--vermelho); }
+
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .cursor { animation: none; }
+  * { transition: none !important; }
+}
+</style>
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="JITS">
+<meta property="og:title" content="JITS · Smart solutions for your company">
+<meta property="og:description" content="Custom software, apps and websites, with close contact and real support.">
+<meta property="og:url" content="https://jits.dev.br/en/">
+<meta property="og:image" content="https://jits.dev.br/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="jits_ logo with the tagline Smart solutions for your company">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jits.dev.br/og-image.png">
+<link rel="canonical" href="https://jits.dev.br/en/">
+<link rel="alternate" hreflang="pt-BR" href="https://jits.dev.br/">
+<link rel="alternate" hreflang="en" href="https://jits.dev.br/en/">
+<link rel="alternate" hreflang="x-default" href="https://jits.dev.br/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "JITS",
+  "alternateName": "Jailton Information Technology Solutions",
+  "description": "Software house from Fortaleza, Brazil, that builds custom software, apps and websites, modernizes legacy systems and provides IT consulting.",
+  "url": "https://jits.dev.br/",
+  "logo": "https://jits.dev.br/favicon.svg",
+  "image": "https://jits.dev.br/og-image.png",
+  "email": "contato@jits.dev.br",
+  "telephone": "+55-85-99736-1426",
+  "foundingDate": "2015-01",
+  "founder": {
+    "@type": "Person",
+    "name": "Antônio Jailton Carvalho Araújo",
+    "sameAs": [
+      "https://www.linkedin.com/in/ant%C3%B4nio-jailton-carvalho-ara%C3%BAjo-0b551317",
+      "https://github.com/trobozoi"
+    ]
+  },
+  "address": { "@type": "PostalAddress", "addressLocality": "Fortaleza", "addressRegion": "CE", "addressCountry": "BR" },
+  "areaServed": "BR",
+  "knowsAbout": ["Custom software development", "Legacy system modernization", "Mobile apps", "Websites and e-commerce", "IT consulting"]
+}
+</script>
+</head>
+<body>
+
+<header class="faixa topo">
+  <div class="miolo">
+    <a class="logo" href="#inicio" aria-label="JITS, back to top">
+      <span class="logo__nome">jits</span><span class="cursor" aria-hidden="true"></span>
+    </a>
+    <nav class="menu" aria-label="Main menu">
+      <a class="menu__link" href="#servicos">Services</a>
+      <a class="menu__link" href="#portfolio">Portfolio</a>
+      <a class="menu__link" href="#como-trabalhamos">How we work</a>
+      <a class="menu__link" href="#sobre">About</a>
+      <a class="idioma" href="https://jits.dev.br/" hreflang="pt-BR" lang="pt-BR" aria-label="Versão em português">PT</a>
+      <a class="botao botao--cheio" href="#contato">Contact us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="inicio" class="faixa hero">
+    <div class="miolo">
+      <div class="hero__texto">
+        <p class="rotulo">Software house</p>
+        <h1>Smart solutions for your company<span class="cursor" aria-hidden="true"></span></h1>
+        <p class="hero__apoio">Custom software, apps and websites, with close contact and real support.</p>
+        <div class="acoes">
+          <a class="botao botao--cheio" href="#contato">Request a quote</a>
+          <a class="botao botao--vazio" href="#servicos">See services</a>
+        </div>
+      </div>
+
+      <figure class="terminal" aria-label="Illustration: a terminal showing the stages of a JITS project" style="margin:0">
+        <div class="terminal__barra">
+          <div class="terminal__pontos" aria-hidden="true"><span></span><span></span><span></span></div>
+          <button class="terminal__repetir" id="terminal-repetir" type="button" hidden aria-label="Replay the terminal animation">↻ replay</button>
+          <span aria-hidden="true">jits — your-company</span>
+        </div>
+        <div class="terminal__corpo" aria-hidden="true">
+          <p><span class="t-pasta">~/your-company $</span> <span class="t-cmd">jits assess</span></p>
+          <p><span class="t-ok">✓</span> <span class="t-saida">processes mapped</span></p>
+          <p><span class="t-ok">✓</span> <span class="t-saida">bottlenecks: spreadsheets, rework</span></p>
+          <p><span class="t-pasta">~/your-company $</span> <span class="t-cmd">jits build --custom</span></p>
+          <p><span class="t-ok">✓</span> <span class="t-saida">web system ......... done</span></p>
+          <p><span class="t-ok">✓</span> <span class="t-saida">mobile app ......... done</span></p>
+          <p><span class="t-ok">✓</span> <span class="t-saida">integrations ....... done</span></p>
+          <p><span class="t-pasta">~/your-company $</span> <span class="t-cmd">jits support --ongoing</span></p>
+          <p><span class="t-pasta">~/your-company $</span> <span class="cursor"></span></p>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section id="servicos" class="faixa secao secao--grafite">
+    <div class="miolo">
+      <div class="secao__cabeca">
+        <p class="rotulo">Services</p>
+        <h2>Technology built around the way your company works</h2>
+      </div>
+      <div class="servicos">
+        <article class="servico">
+          <span class="servico__marca" aria-hidden="true"></span>
+          <span class="servico__rota">/custom-software</span>
+          <h3>Custom software</h3>
+          <p>Business software designed from your own processes, without bending the company to fit an off-the-shelf package.</p>
+          <ul>
+            <li>ERP and internal controls</li>
+            <li>Legacy system modernization</li>
+            <li>Integration with existing systems</li>
+          </ul>
+          <a class="servico__mais" href="https://jits.dev.br/en/custom-software/">Learn more <span aria-hidden="true">→</span><span class="sr"> about custom software</span></a>
+        </article>
+        <article class="servico">
+          <span class="servico__marca" aria-hidden="true"></span>
+          <span class="servico__rota">/mobile-apps</span>
+          <h3>Mobile apps</h3>
+          <p>Android and iOS apps that put your operation on the phones of your team and your customers.</p>
+          <ul>
+            <li>Apps for field teams</li>
+            <li>Apps for customers</li>
+            <li>Store publishing</li>
+          </ul>
+          <a class="servico__mais" href="https://jits.dev.br/en/mobile-apps/">Learn more <span aria-hidden="true">→</span><span class="sr"> about mobile apps</span></a>
+        </article>
+        <article class="servico">
+          <span class="servico__marca" aria-hidden="true"></span>
+          <span class="servico__rota">/websites</span>
+          <h3>Websites and e-commerce</h3>
+          <p>Fast websites and online stores that present your brand and sell every day.</p>
+          <ul>
+            <li>Company websites</li>
+            <li>Online stores</li>
+            <li>Landing pages</li>
+          </ul>
+          <a class="servico__mais" href="https://jits.dev.br/en/websites/">Learn more <span aria-hidden="true">→</span><span class="sr"> about websites and e-commerce</span></a>
+        </article>
+        <article class="servico">
+          <span class="servico__marca" aria-hidden="true"></span>
+          <span class="servico__rota">/it-consulting</span>
+          <h3>IT consulting</h3>
+          <p>Guidance to choose, organize and maintain the right technology for the size of your business.</p>
+          <ul>
+            <li>Process assessment</li>
+            <li>Infrastructure and cloud</li>
+            <li>Information security</li>
+          </ul>
+          <a class="servico__mais" href="https://jits.dev.br/en/it-consulting/">Learn more <span aria-hidden="true">→</span><span class="sr"> about IT consulting</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="faixa secao">
+    <div class="miolo">
+      <div class="secao__cabeca">
+        <p class="rotulo">Portfolio</p>
+        <h2>Concept projects</h2>
+        <p>Systems, websites and games JITS created to show how it thinks about architecture, identity and user experience. The websites and games are live, and the code for the systems and games is open on GitHub. Most of them are in Portuguese.</p>
+      </div>
+      <article class="vitrine projeto">
+        <div class="vitrine__topo">
+          <div class="projeto__info">
+            <span class="servico__rota">/retail · Fortaleza, Brazil</span>
+            <h3>Super Benfica: platform for a supermarket chain</h3>
+            <p>Concept of a complete system for a chain with three stores. Customers buy through the app or the website, staff pick orders with a barcode scanner and management follows sales and inventory for each store. Everything talks in real time.</p>
+            <ul class="projeto__tags">
+              <li class="projeto__tag--conceito">Concept project</li>
+              <li>Real time</li>
+              <li>Multi-store</li>
+              <li>5 access roles</li>
+            </ul>
+            <ul class="partes">
+                <li><strong>REST API</strong><span>Django · WebSocket · JWT</span><a href="https://github.com/trobozoi/superbenfica-api" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Code on GitHub<span class="sr"> for the Super Benfica REST API (opens in a new tab)</span></a></li>
+                <li><strong>Online store</strong><span>Next.js · React</span><a href="https://github.com/trobozoi/superbenfica-web" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Code on GitHub<span class="sr"> for the Super Benfica online store (opens in a new tab)</span></a></li>
+                <li><strong>Admin portal</strong><span>Next.js · React</span><a href="https://github.com/trobozoi/superbenfica-admin" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Code on GitHub<span class="sr"> for the Super Benfica admin portal (opens in a new tab)</span></a></li>
+                <li><strong>Mobile app</strong><span>React Native · Expo</span><a href="https://github.com/trobozoi/superbenfica-mobile" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Code on GitHub<span class="sr"> for the Super Benfica mobile app (opens in a new tab)</span></a></li>
+            </ul>
+          </div>
+          <figure class="celulares-wrap" style="margin:0">
+            <div class="celulares">
+              <div class="celular"><img src="/portfolio/superbenfica-app-inicio.jpg" width="606" height="1150" loading="lazy" alt="Super Benfica app: home screen with search, order in progress, categories and featured products"></div>
+              <div class="celular"><img src="/portfolio/superbenfica-app-pedido.jpg" width="606" height="1150" loading="lazy" alt="Super Benfica app: live order tracking, at the Picked stage"></div>
+              <div class="celular"><img src="/portfolio/superbenfica-app-carrinho.jpg" width="606" height="1150" loading="lazy" alt="Super Benfica app: cart with products and estimated total"></div>
+            </div>
+            <figcaption>Mobile app · home, order and cart</figcaption>
+          </figure>
+        </div>
+        <div class="telas">
+          <figure class="tela--larga">
+            <div class="projeto__tela"><span class="projeto__barra"><span class="terminal__pontos"><span></span><span></span><span></span></span><span class="projeto__url">Admin portal · Dashboard</span></span><img src="/portfolio/superbenfica-admin.jpg" width="1600" height="592" loading="lazy" alt="Super Benfica admin portal: revenue, orders by status, revenue per store and low stock"></div>
+          </figure>
+          <figure>
+            <div class="projeto__tela"><span class="projeto__barra"><span class="terminal__pontos"><span></span><span></span><span></span></span><span class="projeto__url">Online store · Products</span></span><img src="/portfolio/superbenfica-loja.jpg" width="1280" height="800" loading="lazy" alt="Super Benfica online store: catalog with search, categories and products"></div>
+          </figure>
+          <figure>
+            <div class="projeto__tela"><span class="projeto__barra"><span class="terminal__pontos"><span></span><span></span><span></span></span><span class="projeto__url">API · Documentation</span></span><img src="/portfolio/superbenfica-api.jpg" width="1280" height="800" loading="lazy" alt="Super Benfica API home page with its modules and an authentication example"></div>
+          </figure>
+        </div>
+      </article>
+      <div class="projetos">
+        <article class="projeto">
+          <a class="projeto__tela" href="https://aurum-estetica.vercel.app/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <span class="projeto__barra"><span class="terminal__pontos"><span></span><span></span><span></span></span><span class="projeto__url">aurum-estetica.vercel.app</span></span>
+            <img src="/portfolio/aurum-bem-estar.jpg" width="1280" height="800" loading="lazy" alt="">
+          </a>
+          <div class="projeto__info">
+            <span class="servico__rota">/beauty · Lisbon, Portugal</span>
+            <h3>Aurum Advanced Aesthetics &amp; Wellness</h3>
+            <p>Concept website for a beauty clinic in Lisbon. A light, elegant look with treatments, team, customer reviews and online booking always at hand.</p>
+            <ul class="projeto__tags">
+              <li class="projeto__tag--conceito">Concept project</li>
+              <li>Company website</li>
+              <li>Online booking</li>
+              <li>Responsive</li>
+            </ul>
+            <a class="projeto__link" href="https://aurum-estetica.vercel.app/" target="_blank" rel="noopener">Visit the site <span aria-hidden="true">↗</span><span class="sr"> Aurum Advanced Aesthetics (opens in a new tab)</span></a>
+          </div>
+        </article>
+        <article class="projeto">
+          <a class="projeto__tela" href="https://aurum-estetica-gray.vercel.app/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <span class="projeto__barra"><span class="terminal__pontos"><span></span><span></span><span></span></span><span class="projeto__url">aurum-estetica-gray.vercel.app</span></span>
+            <img src="/portfolio/aurum-automotiva.jpg" width="1280" height="800" loading="lazy" alt="">
+          </a>
+          <div class="projeto__info">
+            <span class="servico__rota">/automotive · São Paulo, Brazil</span>
+            <h3>Aurum Automotive Detailing</h3>
+            <p>Concept of a premium website for a car detailing studio. Services with prices, a five-step process, a draggable before-and-after slider and booking straight through WhatsApp.</p>
+            <ul class="projeto__tags">
+              <li class="projeto__tag--conceito">Concept project</li>
+              <li>Landing page</li>
+              <li>Interactive before and after</li>
+              <li>WhatsApp</li>
+            </ul>
+            <a class="projeto__link" href="https://aurum-estetica-gray.vercel.app/" target="_blank" rel="noopener">Visit the site <span aria-hidden="true">↗</span><span class="sr"> Aurum Automotive Detailing (opens in a new tab)</span></a>
+          </div>
+        </article>
+        <article class="projeto">
+          <a class="projeto__tela" href="https://trobozoi.github.io/javascript_xadrez/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <span class="projeto__barra"><span class="terminal__pontos"><span></span><span></span><span></span></span><span class="projeto__url">trobozoi.github.io/javascript_xadrez</span></span>
+            <img src="/portfolio/jogo-xadrez.jpg" width="1280" height="800" loading="lazy" alt="">
+          </a>
+          <div class="projeto__info">
+            <span class="servico__rota">/games · browser</span>
+            <h3>Chess against the computer</h3>
+            <p>A full game of chess in the browser, with all the official rules. The computer plays with Stockfish running in WebAssembly and explains each move (in Portuguese). You can download the game log.</p>
+            <ul class="projeto__tags">
+              <li class="projeto__tag--conceito">Concept project</li>
+              <li>Vanilla JavaScript</li>
+              <li>Stockfish · WebAssembly</li>
+            </ul>
+            <div class="projeto__links">
+              <a class="projeto__link" href="https://trobozoi.github.io/javascript_xadrez/" target="_blank" rel="noopener">Play now <span aria-hidden="true">↗</span><span class="sr"> Chess (opens in a new tab)</span></a>
+              <a class="projeto__link" href="https://github.com/trobozoi/javascript_xadrez" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Code on GitHub<span class="sr"> for Chess (opens in a new tab)</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="projeto">
+          <a class="projeto__tela" href="https://trobozoi.github.io/javascript_dama/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <span class="projeto__barra"><span class="terminal__pontos"><span></span><span></span><span></span></span><span class="projeto__url">trobozoi.github.io/javascript_dama</span></span>
+            <img src="/portfolio/jogo-damas.jpg" width="1280" height="800" loading="lazy" alt="">
+          </a>
+          <div class="projeto__info">
+            <span class="servico__rota">/games · browser</span>
+            <h3>Brazilian Checkers</h3>
+            <p>Checkers with the official Brazilian rules, mandatory capture and flying kings. Its own AI uses Minimax with alpha-beta pruning and has 17 difficulty levels, from beginner to master.</p>
+            <ul class="projeto__tags">
+              <li class="projeto__tag--conceito">Concept project</li>
+              <li>Vanilla JavaScript</li>
+              <li>Own AI</li>
+              <li>Minimax</li>
+            </ul>
+            <div class="projeto__links">
+              <a class="projeto__link" href="https://trobozoi.github.io/javascript_dama/" target="_blank" rel="noopener">Play now <span aria-hidden="true">↗</span><span class="sr"> Brazilian Checkers (opens in a new tab)</span></a>
+              <a class="projeto__link" href="https://github.com/trobozoi/javascript_dama" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Code on GitHub<span class="sr"> for Brazilian Checkers (opens in a new tab)</span></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="como-trabalhamos" class="faixa secao secao--grafite">
+    <div class="miolo">
+      <div class="secao__cabeca">
+        <p class="rotulo">How we work</p>
+        <h2>From the first coffee to the system running</h2>
+        <p>Every project goes through the same four stages. You follow everything and approve before we move on to the next.</p>
+      </div>
+      <ol class="etapas">
+        <li class="etapa">
+          <span class="etapa__num">01 · assess</span>
+          <h3>Assessment</h3>
+          <p>We talk to your team and map how work happens today.</p>
+        </li>
+        <li class="etapa">
+          <span class="etapa__num">02 · plan</span>
+          <h3>Proposal</h3>
+          <p>You receive scope, timeline and cost in writing, with no surprises.</p>
+        </li>
+        <li class="etapa">
+          <span class="etapa__num">03 · build</span>
+          <h3>Development</h3>
+          <p>Deliveries in short cycles, with versions to test along the way.</p>
+        </li>
+        <li class="etapa">
+          <span class="etapa__num">04 · support</span>
+          <h3>Delivery and support</h3>
+          <p>We train your team and stay by your side with maintenance and improvements.</p>
+        </li>
+      </ol>
+      <div class="stack" id="tecnologias">
+        <h3 class="stack__titulo">Technologies we use</h3>
+        <dl class="stack__grade">
+          <div class="stack__grupo"><dt>Languages</dt><dd><span>C#</span><span>Java</span><span>PHP</span><span>Python</span><span>TypeScript</span><span>JavaScript</span></dd></div>
+          <div class="stack__grupo"><dt>Back-end</dt><dd><span>.NET</span><span>Spring Boot</span><span>Quarkus</span><span>Laravel</span><span>Symfony</span><span>Django</span><span>Node.js</span></dd></div>
+          <div class="stack__grupo"><dt>Front-end and mobile</dt><dd><span>React</span><span>Next.js</span><span>Angular</span><span>React Native</span><span>Expo</span><span>Tailwind CSS</span></dd></div>
+          <div class="stack__grupo"><dt>Databases</dt><dd><span>SQL Server</span><span>Oracle</span><span>PostgreSQL</span><span>MySQL</span><span>MongoDB</span><span>Redis</span></dd></div>
+          <div class="stack__grupo"><dt>Infra and quality</dt><dd><span>Docker</span><span>Nginx</span><span>Git</span><span>SonarQube</span><span>Playwright</span><span>Jest</span></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" class="faixa secao">
+    <div class="miolo">
+      <div class="sobre">
+        <div class="sobre__texto">
+          <p class="rotulo">About</p>
+          <h2>Always ready for the next solution</h2>
+          <p>The red block after the JITS name recalls a terminal cursor, blinking as it waits for the next command. That is how we work: attentive to what your company needs and ready to turn it into software.</p>
+          <p>JITS was born in January 2015 in Fortaleza, Brazil, founded by Jailton Araújo. Before that, Jailton spent years at other technology companies as a contractor, building products and maintaining legacy systems. With JITS, that experience found a home of its own. The name tells the story: <strong>J</strong>ailton <strong>I</strong>nformation <strong>T</strong>echnology <strong>S</strong>olutions.</p>
+          <p>We serve companies in any sector, with particular experience in industry and retail. One of our specialties is evolving legacy systems, improving what already exists with a focus on business goals. We work remotely with clients anywhere in the world and on site throughout Brazil. For larger projects, JITS brings together trusted professionals it has worked with before.</p>
+          <div class="valores">
+            <div class="valor"><strong>Fast delivery</strong><span>Working versions in a short time.</span></div>
+            <div class="valor"><strong>Quality</strong><span>Well-made code, ready to grow.</span></div>
+            <div class="valor"><strong>Flexible payment</strong><span>Terms that fit your project.</span></div>
+          </div>
+        </div>
+        <div class="icone-marca" role="img" aria-label="JITS icon: the letter j with the cursor">
+          <span class="icone-marca__j" aria-hidden="true">j<span class="cursor"></span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="faixa contato">
+    <div class="miolo">
+      <div class="contato__texto">
+        <div>
+          <h2>Shall we build your company’s solution?</h2>
+          <p class="contato__apoio">Tell us what you need. We reply with the next steps and, if it makes sense, a quote.</p>
+        </div>
+        <div class="canais">
+        <div class="canal">
+          <div class="canal__info">
+            <span class="canal__tipo">WhatsApp and phone</span>
+            <span class="canal__valor" id="valor-telefone">+55 85 99736-1426</span>
+          </div>
+          <button class="copiar" type="button" data-alvo="valor-telefone">Copy</button>
+        </div>
+        <div class="canal">
+          <div class="canal__info">
+            <span class="canal__tipo">Email</span>
+            <span class="canal__valor" id="valor-email">contato@jits.dev.br</span>
+          </div>
+          <button class="copiar" type="button" data-alvo="valor-email">Copy</button>
+        </div>
+        <div class="canal">
+          <div class="canal__info">
+            <span class="canal__tipo">Location</span>
+            <span class="canal__valor" id="valor-endereco">Fortaleza, Brazil</span>
+          </div>
+          <button class="copiar" type="button" data-alvo="valor-endereco">Copy</button>
+        </div>
+      </div>
+      </div>
+
+      <form class="form" id="form-contato" novalidate>
+        <h3 class="form__titulo">Send a message</h3>
+        <div class="duas">
+          <div class="campo">
+            <label for="f-nome">Name</label>
+            <input id="f-nome" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="campo">
+            <label for="f-empresa">Company <span class="opcional">(optional)</span></label>
+            <input id="f-empresa" name="empresa" type="text" autocomplete="organization">
+          </div>
+        </div>
+        <div class="duas">
+          <div class="campo">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="campo">
+            <label for="f-telefone">WhatsApp <span class="opcional">(optional)</span></label>
+            <input id="f-telefone" name="telefone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Country code and number">
+          </div>
+        </div>
+        <div class="campo">
+          <label for="f-projeto">What do you need?</label>
+          <select id="f-projeto" name="projeto" required>
+            <option value="">Choose an option</option>
+            <option>Custom software</option>
+            <option>Legacy system modernization</option>
+            <option>Mobile app</option>
+            <option>Website or e-commerce</option>
+            <option>IT consulting</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="f-mensagem">Message</label>
+          <textarea id="f-mensagem" name="message" rows="5" required placeholder="Tell us a little about your company and what you want to solve."></textarea>
+        </div>
+        <input class="hp" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="aceite">
+          <input id="f-aceite" name="aceite" type="checkbox" required>
+          <label for="f-aceite">I have read and agree to the <a href="/en/privacy-policy.html">Privacy Policy</a>.</label>
+        </div>
+        <button class="botao botao--cheio" type="submit">Send message</button>
+        <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="faixa rodape">
+  <div class="miolo">
+    <a class="logo" href="#inicio" aria-label="JITS, back to top">
+      <span class="logo__nome" style="font-size:30px">jits</span><span class="cursor" aria-hidden="true"></span>
+    </a>
+    <nav aria-label="Footer">
+      <a href="#servicos">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#como-trabalhamos">How we work</a>
+      <a href="#sobre">About</a>
+      <a href="#contato">Contact</a>
+      <a href="/en/privacy-policy.html">Privacy</a>
+    </nav>
+    <nav class="social" aria-label="Social media">
+      <a href="https://www.linkedin.com/in/ant%C3%B4nio-jailton-carvalho-ara%C3%BAjo-0b551317" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 4.37v6.371zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+      </a>
+      <a href="https://github.com/trobozoi" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+      </a>
+    </nav>
+    <span class="rodape__copy">© <span id="ano">2026</span> JITS · jits.dev.br · Fortaleza, Brazil</span>
+  </div>
+</footer>
+
+<a class="whats" href="https://wa.me/5585997361426?text=Hello%2C%20JITS!%20I%20found%20you%20through%20the%20website%20and%20would%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener" aria-label="Chat with JITS on WhatsApp">
+  <svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
+</a>
+
+<script>
+  document.getElementById('ano').textContent = new Date().getFullYear();
+
+  // Formulário de contato: envia pelo Web3Forms para o e-mail cadastrado na chave.
+  (function () {
+    var CHAVE_WEB3FORMS = '9b29d15f-eb41-4104-a9c1-6d5c21378493';
+    var form = document.getElementById('form-contato');
+    if (!form) return;
+    var status = document.getElementById('form-status');
+    var botao = form.querySelector('button[type="submit"]');
+
+    function avisar(texto, tipo) {
+      status.textContent = texto;
+      status.className = 'form__status' + (tipo ? ' ' + tipo : '');
+    }
+
+    form.addEventListener('input', function (e) {
+      if (e.target.getAttribute('aria-invalid') === 'true' && e.target.checkValidity()) {
+        e.target.removeAttribute('aria-invalid');
+      }
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var invalidos = Array.prototype.filter.call(form.elements, function (el) {
+        return el.willValidate && !el.checkValidity();
+      });
+      Array.prototype.forEach.call(form.elements, function (el) { el.removeAttribute('aria-invalid'); });
+      if (invalidos.length) {
+        invalidos.forEach(function (el) { el.setAttribute('aria-invalid', 'true'); });
+        invalidos[0].focus();
+        var el = invalidos[0];
+        var msg = el.type === 'checkbox' ? 'To send, please tick that you agree to the Privacy Policy.'
+          : el.type === 'email' && el.value ? 'Please check the email address: it looks incomplete.'
+          : 'Please fill in the required fields: name, email, what you need and the message.';
+        avisar(msg, 'erro');
+        return;
+      }
+
+      var dados = {};
+      new FormData(form).forEach(function (valor, chave) { dados[chave] = valor; });
+      if (dados.botcheck) return;
+      delete dados.botcheck;
+      delete dados.aceite;
+      dados.access_key = CHAVE_WEB3FORMS;
+      dados.subject = 'Website contact (EN): ' + dados.projeto + ' (' + dados.name + ')';
+      dados.from_name = 'Site JITS';
+
+      botao.disabled = true;
+      botao.textContent = 'Sending…';
+      avisar('', '');
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(dados)
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (!res.success) throw new Error(res.message || 'falha');
+          form.reset();
+          avisar('Message sent. We will reply to the email address you provided.', 'ok');
+        })
+        .catch(function () {
+          avisar('We could not send it right now. Please try again in a moment or reach us on WhatsApp at +55 85 99736-1426.', 'erro');
+        })
+        .then(function () {
+          botao.disabled = false;
+          botao.textContent = 'Send message';
+        });
+    });
+  })();
+
+  // Terminal do início: digita os comandos, imprime as respostas e termina com o cursor piscando.
+  (function () {
+    var corpo = document.querySelector('.terminal__corpo');
+    var repetir = document.getElementById('terminal-repetir');
+    if (!corpo) return;
+    var semMovimento = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (semMovimento) return; // sem animação: o terminal fica completo, como está no HTML
+
+    var linhas = Array.prototype.slice.call(corpo.querySelectorAll('p')).map(function (el) {
+      var cmd = el.querySelector('.t-cmd');
+      return { el: el, cmd: cmd, texto: cmd ? cmd.textContent : '' };
+    });
+    var cursor = corpo.querySelector('.cursor');
+    var ultima = linhas[linhas.length - 1].el;
+    var timers = [];
+    var rodando = false;
+
+    function depois(ms, fn) { timers.push(setTimeout(fn, ms)); }
+    function limpar() { timers.forEach(clearTimeout); timers = []; }
+
+    function preparar() {
+      linhas.forEach(function (l) {
+        l.el.classList.add('oculta');
+        if (l.cmd) l.cmd.textContent = '';
+      });
+    }
+
+    function terminar() {
+      linhas.forEach(function (l) {
+        l.el.classList.remove('oculta');
+        if (l.cmd) l.cmd.textContent = l.texto;
+      });
+      ultima.appendChild(cursor);
+      cursor.classList.remove('digitando');
+      rodando = false;
+      if (repetir) repetir.hidden = false;
+    }
+
+    function digitar(l, i, fim) {
+      if (i > l.texto.length) { fim(); return; }
+      l.cmd.textContent = l.texto.slice(0, i);
+      depois(38 + Math.random() * 55, function () { digitar(l, i + 1, fim); });
+    }
+
+    function passo(n) {
+      if (n >= linhas.length) { terminar(); return; }
+      var l = linhas[n];
+      l.el.classList.remove('oculta');
+      if (l.cmd) {
+        l.el.appendChild(cursor);
+        cursor.classList.remove('digitando');
+        depois(650, function () {
+          cursor.classList.add('digitando');
+          digitar(l, 1, function () {
+            cursor.classList.remove('digitando');
+            depois(320, function () { cursor.remove(); passo(n + 1); });
+          });
+        });
+      } else if (n === linhas.length - 1) {
+        terminar();
+      } else {
+        var proxEhComando = linhas[n + 1] && linhas[n + 1].cmd;
+        depois(proxEhComando ? 420 : 200, function () { passo(n + 1); });
+      }
+    }
+
+    function iniciar() {
+      if (rodando) return;
+      rodando = true;
+      limpar();
+      if (repetir) repetir.hidden = true;
+      preparar();
+      depois(400, function () { passo(0); });
+    }
+
+    if (repetir) repetir.addEventListener('click', iniciar);
+
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (itens) {
+        if (itens[0].isIntersecting) { obs.disconnect(); iniciar(); }
+      }, { threshold: 0.4 });
+      obs.observe(corpo);
+    } else {
+      iniciar();
+    }
+  })();
+  document.querySelectorAll('.copiar').forEach(function (botao) {
+    botao.addEventListener('click', function () {
+      var alvo = document.getElementById(botao.dataset.alvo);
+      var texto = alvo.textContent.trim();
+      var marcar = function () {
+        var faixa = document.createRange();
+        faixa.selectNodeContents(alvo);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(faixa);
+        botao.textContent = 'Selected';
+      };
+      var pronto = function () { botao.textContent = 'Copied'; };
+      try {
+        navigator.clipboard.writeText(texto).then(pronto, marcar);
+      } catch (e) { marcar(); }
+      setTimeout(function () { botao.textContent = 'Copy'; }, 2000);
+    });
+  });
+</script>
+</body>
+</html>

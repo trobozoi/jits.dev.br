@@ -396,6 +396,67 @@ p { margin: 0; }
 .whats svg { flex: none; }
 .rodape .miolo { padding-bottom: 96px; }
 
+/* Troca de idioma */
+.menu .idioma {
+  font-family: var(--f-mono); font-size: 13px; color: var(--texto-suave);
+  border: 1px solid var(--linha); padding: 0 10px; min-height: 44px; min-width: 44px;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.menu .idioma:hover { color: var(--vermelho); border-color: var(--vermelho); }
+.servico__mais {
+  margin-top: auto; padding-top: 10px; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px;
+  min-height: 44px; font-weight: 600; font-size: 15px; text-decoration: none; color: var(--vermelho);
+}
+.servico__mais:hover { color: var(--vermelho-claro); }
+
+/* Páginas de serviço */
+.pagina-hero .miolo { padding-block: 88px 96px; display: flex; flex-direction: column; gap: 26px; }
+@media (max-width: 640px) { .pagina-hero .miolo { padding-block: 56px 64px; } }
+.pagina-hero .rotulo a { color: inherit; text-decoration: none; }
+.pagina-hero .rotulo a:hover { color: var(--vermelho); }
+.pagina-hero h1 {
+  font-weight: 700; font-size: clamp(2.25rem, 5.4vw, 4rem); line-height: 1.04;
+  letter-spacing: -0.03em; color: var(--vermelho); max-width: 18ch;
+}
+.pagina-hero h1 .cursor { width: 0.42em; height: 0.16em; margin-left: 0.08em; }
+.pagina-hero .hero__apoio { max-width: 44rem; }
+.servicos--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1040px) { .servicos--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .servicos--3 { grid-template-columns: minmax(0, 1fr); } }
+.secao--grafite .servico { background: var(--preto); }
+.secao:not(.secao--grafite) .servico { background: var(--grafite-2); }
+.sinais { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 40px; max-width: 60rem; }
+@media (max-width: 760px) { .sinais { grid-template-columns: minmax(0, 1fr); } }
+.sinais li { display: flex; gap: 14px; align-items: baseline; font-size: 17px; color: var(--texto); }
+.sinais li::before { content: ""; flex: none; width: 12px; height: 4px; background: var(--vermelho); transform: translateY(-4px); }
+.exemplo { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+@media (max-width: 860px) { .exemplo { grid-template-columns: minmax(0, 1fr); gap: 28px; } }
+.exemplo .projeto__info > p { font-size: 17px; color: var(--texto); }
+.faq { display: flex; flex-direction: column; max-width: 52rem; border-top: 1px solid var(--linha); }
+.faq details { border-bottom: 1px solid var(--linha); }
+.faq summary {
+  cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 20px;
+  padding: 20px 0; min-height: 44px; font-family: var(--f-display); font-weight: 700; font-size: 19px; color: var(--branco);
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; flex: none; font-family: var(--f-mono); font-weight: 400; font-size: 22px; color: var(--vermelho); }
+.faq details[open] summary::after { content: "–"; }
+.faq summary:hover { color: var(--vermelho); }
+.faq details p { padding: 0 0 22px; color: var(--texto); max-width: 62ch; }
+.chamada { background: var(--vermelho); color: var(--preto); }
+.chamada .miolo { padding-block: 80px; display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
+.chamada h2 { font-weight: 700; font-size: clamp(2rem, 4.4vw, 3rem); line-height: 1.06; letter-spacing: -0.02em; max-width: 20ch; }
+.chamada p { font-size: 18px; font-weight: 500; max-width: 36rem; }
+.chamada .botao { background: var(--preto); color: var(--branco) !important; border-color: var(--preto); }
+.chamada .botao:hover { background: #2A2A2A; border-color: #2A2A2A; }
+.chamada .botao--claro { background: transparent; color: var(--preto) !important; }
+.chamada .botao--claro:hover { background: var(--preto); color: var(--branco) !important; }
+.chamada :focus-visible { outline-color: var(--preto); }
+.outros { display: flex; flex-wrap: wrap; gap: 12px; }
+.outros a { font-family: var(--f-mono); font-size: 14px; color: var(--texto); text-decoration: none; border: 1px solid var(--linha); padding: 10px 16px; min-height: 44px; display: inline-flex; align-items: center; }
+.outros a:hover { color: var(--vermelho); border-color: var(--vermelho); }
+
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .cursor { animation: none; }
@@ -416,7 +477,10 @@ p { margin: 0; }
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://jits.dev.br/og-image.png">
 <link rel="canonical" href="https://jits.dev.br/">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="pt-BR" href="https://jits.dev.br/">
+<link rel="alternate" hreflang="en" href="https://jits.dev.br/en/">
+<link rel="alternate" hreflang="x-default" href="https://jits.dev.br/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -456,6 +520,7 @@ p { margin: 0; }
       <a class="menu__link" href="#portfolio">Portfólio</a>
       <a class="menu__link" href="#como-trabalhamos">Como trabalhamos</a>
       <a class="menu__link" href="#sobre">Sobre</a>
+      <a class="idioma" href="https://jits.dev.br/en/" hreflang="en" lang="en" aria-label="English version">EN</a>
       <a class="botao botao--cheio" href="#contato">Fale conosco</a>
     </nav>
   </div>
@@ -512,6 +577,7 @@ p { margin: 0; }
             <li>Modernização de sistemas legados</li>
             <li>Integração com sistemas existentes</li>
           </ul>
+          <a class="servico__mais" href="https://jits.dev.br/sistemas/">Saiba mais <span aria-hidden="true">→</span><span class="sr"> sobre sistemas sob medida</span></a>
         </article>
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
@@ -523,6 +589,7 @@ p { margin: 0; }
             <li>Apps para clientes</li>
             <li>Publicação nas lojas</li>
           </ul>
+          <a class="servico__mais" href="https://jits.dev.br/aplicativos/">Saiba mais <span aria-hidden="true">→</span><span class="sr"> sobre aplicativos</span></a>
         </article>
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
@@ -534,6 +601,7 @@ p { margin: 0; }
             <li>Lojas virtuais</li>
             <li>Páginas de campanha</li>
           </ul>
+          <a class="servico__mais" href="https://jits.dev.br/sites/">Saiba mais <span aria-hidden="true">→</span><span class="sr"> sobre sites e e-commerce</span></a>
         </article>
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
@@ -545,6 +613,7 @@ p { margin: 0; }
             <li>Infraestrutura e nuvem</li>
             <li>Segurança da informação</li>
           </ul>
+          <a class="servico__mais" href="https://jits.dev.br/consultoria/">Saiba mais <span aria-hidden="true">→</span><span class="sr"> sobre consultoria em TI</span></a>
         </article>
       </div>
     </div>

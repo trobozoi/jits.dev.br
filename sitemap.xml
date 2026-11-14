@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://jits.dev.br/</loc>
-    <lastmod>2026-11-14</lastmod>
-  </url>
-  <url>
-    <loc>https://jits.dev.br/politica-de-privacidade.html</loc>
-    <lastmod>2026-11-14</lastmod>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://jits.dev.br/</loc><xhtml:link rel="alternate" hreflang="pt-BR" href="https://jits.dev.br/"/><xhtml:link rel="alternate" hreflang="en" href="https://jits.dev.br/en/"/></url>
+  <url><loc>https://jits.dev.br/en/</loc><xhtml:link rel="alternate" hreflang="pt-BR" href="https://jits.dev.br/"/><xhtml:link rel="alternate" hreflang="en" href="https://jits.dev.br/en/"/></url>
+  <url><loc>https://jits.dev.br/sistemas/</loc><xhtml:link rel="alternate" hreflang="pt-BR" href="https://jits.dev.br/sistemas/"/><xhtml:link rel="alternate" hreflang="en" href="https://jits.dev.br/en/custom-software/"/></url>
+  <url><loc>https://jits.dev.br/en/custom-software/</loc><xhtml:link rel="alternate" hreflang="pt-BR" href="https://jits.dev.br/sistemas/"/><xhtml:link rel="alternate" hreflang="en" href="https://jits.dev.br/en/custom-software/"/></url>
+  <url><loc>https://jits.dev.br/aplicativos/</loc><xhtml:link rel="alternate" hreflang="pt-BR" href="https://jits.dev.br/aplicativos/"/><xhtml:link rel="alternate" hreflang="en" href="https://jits.dev.br/en/mobile-apps/"/></url>
+  <url><loc>https://jits.dev.br/en/mobile-apps/</loc><xhtml:link rel="alternate" hreflang="pt-BR" href="https://jits.dev.br/aplicativos/"/><xhtml:link rel="alternate" hreflang="en" href="https://jits.dev.br/en/mobile-apps/"/></url>
+  <url><loc>https://jits.dev.br/sites/</loc><xhtml:link rel="alternate" hreflang="pt-BR" href="https://jits.dev.br/sites/"/><xhtml:link rel="alternate" hreflang="en" href="https://jits.dev.br/en/websites/"/></url>
+  <url><loc>https://jits.dev.br/en/websites/</loc><xhtml:link rel="alternate" hreflang="pt-BR" href="https://jits.dev.br/sites/"/><xhtml:link rel="alternate" hreflang="en" href="https://jits.dev.br/en/websites/"/></url>
+  <url><loc>https://jits.dev.br/consultoria/</loc><xhtml:link rel="alternate" hreflang="pt-BR" href="https://jits.dev.br/consultoria/"/><xhtml:link rel="alternate" hreflang="en" href="https://jits.dev.br/en/it-consulting/"/></url>
+  <url><loc>https://jits.dev.br/en/it-consulting/</loc><xhtml:link rel="alternate" hreflang="pt-BR" href="https://jits.dev.br/consultoria/"/><xhtml:link rel="alternate" hreflang="en" href="https://jits.dev.br/en/it-consulting/"/></url>
+  <url><loc>https://jits.dev.br/politica-de-privacidade.html</loc><xhtml:link rel="alternate" hreflang="pt-BR" href="https://jits.dev.br/politica-de-privacidade.html"/><xhtml:link rel="alternate" hreflang="en" href="https://jits.dev.br/en/privacy-policy.html"/></url>
+  <url><loc>https://jits.dev.br/en/privacy-policy.html</loc><xhtml:link rel="alternate" hreflang="pt-BR" href="https://jits.dev.br/politica-de-privacidade.html"/><xhtml:link rel="alternate" hreflang="en" href="https://jits.dev.br/en/privacy-policy.html"/></url>
 </urlset>
