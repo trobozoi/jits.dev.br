@@ -148,6 +148,16 @@ p { margin: 0; }
 .t-ok { color: var(--vermelho); }
 .t-saida { color: var(--texto); }
 .terminal .cursor { width: 9px; height: 17px; vertical-align: -3px; }
+/* Enquanto digita, o cursor fica aceso; pisca só quando o terminal está parado. */
+.terminal .cursor.digitando { animation: none; opacity: 1; }
+.terminal__corpo p.oculta { visibility: hidden; }
+.terminal__repetir {
+  background: none; border: 0; padding: 4px 0; min-height: 28px; cursor: pointer;
+  font: inherit; color: var(--texto-suave);
+}
+.terminal__repetir:hover { color: var(--vermelho); }
+.terminal__barra .terminal__repetir { margin-left: auto; }
+.terminal__repetir[hidden] { display: none; }
 
 /* Seções */
 .secao .miolo { padding-block: 96px; display: flex; flex-direction: column; gap: 48px; }
@@ -302,9 +312,10 @@ p { margin: 0; }
       </div>
 
       <figure class="terminal" aria-label="Ilustração: um terminal mostrando as etapas de um projeto da JITS" style="margin:0">
-        <div class="terminal__barra" aria-hidden="true">
-          <div class="terminal__pontos"><span></span><span></span><span></span></div>
-          <span>jits — sua-empresa</span>
+        <div class="terminal__barra">
+          <div class="terminal__pontos" aria-hidden="true"><span></span><span></span><span></span></div>
+          <button class="terminal__repetir" id="terminal-repetir" type="button" hidden aria-label="Repetir animação do terminal">↻ repetir</button>
+          <span aria-hidden="true">jits — sua-empresa</span>
         </div>
         <div class="terminal__corpo" aria-hidden="true">
           <p><span class="t-pasta">~/sua-empresa $</span> <span class="t-cmd">jits diagnosticar</span></p>
@@ -490,6 +501,93 @@ p { margin: 0; }
 
 <script>
   document.getElementById('ano').textContent = new Date().getFullYear();
+
+  // Terminal do início: digita os comandos, imprime as respostas e termina com o cursor piscando.
+  (function () {
+    var corpo = document.querySelector('.terminal__corpo');
+    var repetir = document.getElementById('terminal-repetir');
+    if (!corpo) return;
+    var semMovimento = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (semMovimento) return; // sem animação: o terminal fica completo, como está no HTML
+
+    var linhas = Array.prototype.slice.call(corpo.querySelectorAll('p')).map(function (el) {
+      var cmd = el.querySelector('.t-cmd');
+      return { el: el, cmd: cmd, texto: cmd ? cmd.textContent : '' };
+    });
+    var cursor = corpo.querySelector('.cursor');
+    var ultima = linhas[linhas.length - 1].el;
+    var timers = [];
+    var rodando = false;
+
+    function depois(ms, fn) { timers.push(setTimeout(fn, ms)); }
+    function limpar() { timers.forEach(clearTimeout); timers = []; }
+
+    function preparar() {
+      linhas.forEach(function (l) {
+        l.el.classList.add('oculta');
+        if (l.cmd) l.cmd.textContent = '';
+      });
+    }
+
+    function terminar() {
+      linhas.forEach(function (l) {
+        l.el.classList.remove('oculta');
+        if (l.cmd) l.cmd.textContent = l.texto;
+      });
+      ultima.appendChild(cursor);
+      cursor.classList.remove('digitando');
+      rodando = false;
+      if (repetir) repetir.hidden = false;
+    }
+
+    function digitar(l, i, fim) {
+      if (i > l.texto.length) { fim(); return; }
+      l.cmd.textContent = l.texto.slice(0, i);
+      depois(38 + Math.random() * 55, function () { digitar(l, i + 1, fim); });
+    }
+
+    function passo(n) {
+      if (n >= linhas.length) { terminar(); return; }
+      var l = linhas[n];
+      l.el.classList.remove('oculta');
+      if (l.cmd) {
+        l.el.appendChild(cursor);
+        cursor.classList.remove('digitando');
+        depois(650, function () {
+          cursor.classList.add('digitando');
+          digitar(l, 1, function () {
+            cursor.classList.remove('digitando');
+            depois(320, function () { cursor.remove(); passo(n + 1); });
+          });
+        });
+      } else if (n === linhas.length - 1) {
+        terminar();
+      } else {
+        var proxEhComando = linhas[n + 1] && linhas[n + 1].cmd;
+        depois(proxEhComando ? 420 : 200, function () { passo(n + 1); });
+      }
+    }
+
+    function iniciar() {
+      if (rodando) return;
+      rodando = true;
+      limpar();
+      if (repetir) repetir.hidden = true;
+      preparar();
+      depois(400, function () { passo(0); });
+    }
+
+    if (repetir) repetir.addEventListener('click', iniciar);
+
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (itens) {
+        if (itens[0].isIntersecting) { obs.disconnect(); iniciar(); }
+      }, { threshold: 0.4 });
+      obs.observe(corpo);
+    } else {
+      iniciar();
+    }
+  })();
   document.querySelectorAll('.copiar').forEach(function (botao) {
     botao.addEventListener('click', function () {
       var alvo = document.getElementById(botao.dataset.alvo);
