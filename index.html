@@ -236,9 +236,44 @@ p { margin: 0; }
 /* Contato */
 .contato { background: var(--vermelho); color: var(--preto); }
 .contato .miolo {
-  padding-block: 88px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  gap: 48px; align-items: center;
+  padding-block: 88px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 48px; align-items: start;
 }
+.contato__texto { display: flex; flex-direction: column; gap: 32px; min-width: 0; }
+
+/* Formulário (cartão preto sobre a faixa vermelha) */
+.form {
+  background: var(--preto); color: var(--branco);
+  padding: 32px; display: flex; flex-direction: column; gap: 18px; min-width: 0;
+}
+@media (max-width: 480px) { .form { padding: 24px 18px; } }
+.form__titulo { font-size: 24px; font-weight: 700; color: var(--branco); }
+.duas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 560px) { .duas { grid-template-columns: minmax(0, 1fr); } }
+.campo { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.campo label { font-size: 14px; font-weight: 500; color: var(--texto); }
+.opcional { color: var(--texto-suave); font-weight: 400; }
+.campo input, .campo select, .campo textarea {
+  width: 100%; font: inherit; font-size: 16px; color: var(--branco);
+  background: var(--grafite); border: 1px solid #333333; border-radius: 0;
+  padding: 12px 14px; min-height: 48px;
+}
+.campo textarea { resize: vertical; min-height: 128px; line-height: 1.5; }
+.campo input::placeholder, .campo textarea::placeholder { color: #7A7A7A; }
+.campo input:focus, .campo select:focus, .campo textarea:focus { border-color: var(--vermelho); }
+.campo [aria-invalid="true"] { border-color: var(--vermelho-claro); }
+.contato .form :focus-visible { outline-color: var(--vermelho); }
+.hp { display: none; }
+.aceite { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--texto); }
+.aceite input { width: 20px; height: 20px; margin: 1px 0 0; flex: none; accent-color: var(--vermelho); }
+.aceite a { color: var(--branco); }
+.aceite a:hover { color: var(--vermelho); }
+.form .botao { align-self: flex-start; }
+.form .botao:disabled { opacity: .6; cursor: progress; }
+.form__status { font-size: 15px; min-height: 1.5em; }
+.form__status.ok { color: var(--branco); }
+.form__status.ok::before { content: ""; display: inline-block; width: 14px; height: 5px; background: var(--vermelho); margin-right: 10px; vertical-align: middle; }
+.form__status.erro { color: var(--vermelho-claro); }
 @media (max-width: 860px) { .contato .miolo { grid-template-columns: minmax(0, 1fr); padding-block: 72px; } }
 .contato h2 { font-weight: 700; font-size: clamp(2rem, 4.4vw, 3.2rem); line-height: 1.06; letter-spacing: -0.02em; }
 .contato__apoio { font-size: 18px; margin-top: 18px; max-width: 34rem; font-weight: 500; }
@@ -309,6 +344,25 @@ p { margin: 0; }
 <meta name="twitter:image" content="https://jits.dev.br/og-image.png">
 <link rel="canonical" href="https://jits.dev.br/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "JITS",
+  "alternateName": "Jailton Information Technology Solutions",
+  "description": "Softhouse de Fortaleza que desenvolve sistemas, aplicativos e sites sob medida, moderniza sistemas legados e presta consultoria em TI.",
+  "url": "https://jits.dev.br/",
+  "logo": "https://jits.dev.br/favicon.svg",
+  "image": "https://jits.dev.br/og-image.png",
+  "email": "contato@jits.dev.br",
+  "telephone": "+55-85-99736-1426",
+  "foundingDate": "2015-01",
+  "founder": { "@type": "Person", "name": "Jailton Araújo" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Fortaleza", "addressRegion": "CE", "addressCountry": "BR" },
+  "areaServed": "BR",
+  "knowsAbout": ["Desenvolvimento de software sob medida", "Modernização de sistemas legados", "Aplicativos", "Sites e e-commerce", "Consultoria em TI"]
+}
+</script>
 </head>
 <body>
 
@@ -481,11 +535,12 @@ p { margin: 0; }
 
   <section id="contato" class="faixa contato">
     <div class="miolo">
-      <div>
-        <h2>Vamos criar a solução da sua empresa?</h2>
-        <p class="contato__apoio">Conte o que você precisa. Respondemos com os próximos passos e, se fizer sentido, um orçamento.</p>
-      </div>
-      <div class="canais">
+      <div class="contato__texto">
+        <div>
+          <h2>Vamos criar a solução da sua empresa?</h2>
+          <p class="contato__apoio">Conte o que você precisa. Respondemos com os próximos passos e, se fizer sentido, um orçamento.</p>
+        </div>
+        <div class="canais">
         <div class="canal">
           <div class="canal__info">
             <span class="canal__tipo">WhatsApp e telefone</span>
@@ -508,6 +563,54 @@ p { margin: 0; }
           <button class="copiar" type="button" data-alvo="valor-endereco">Copiar</button>
         </div>
       </div>
+      </div>
+
+      <form class="form" id="form-contato" novalidate>
+        <h3 class="form__titulo">Mande uma mensagem</h3>
+        <div class="duas">
+          <div class="campo">
+            <label for="f-nome">Nome</label>
+            <input id="f-nome" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="campo">
+            <label for="f-empresa">Empresa <span class="opcional">(opcional)</span></label>
+            <input id="f-empresa" name="empresa" type="text" autocomplete="organization">
+          </div>
+        </div>
+        <div class="duas">
+          <div class="campo">
+            <label for="f-email">E-mail</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="campo">
+            <label for="f-telefone">WhatsApp <span class="opcional">(opcional)</span></label>
+            <input id="f-telefone" name="telefone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(85) 90000-0000">
+          </div>
+        </div>
+        <div class="campo">
+          <label for="f-projeto">O que você precisa?</label>
+          <select id="f-projeto" name="projeto" required>
+            <option value="">Escolha uma opção</option>
+            <option>Sistema sob medida</option>
+            <option>Modernização de sistema legado</option>
+            <option>Aplicativo</option>
+            <option>Site ou e-commerce</option>
+            <option>Consultoria em TI</option>
+            <option>Outro assunto</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="f-mensagem">Mensagem</label>
+          <textarea id="f-mensagem" name="message" rows="5" required placeholder="Conte um pouco sobre a sua empresa e o que você quer resolver."></textarea>
+        </div>
+        <input class="hp" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="aceite">
+          <input id="f-aceite" name="aceite" type="checkbox" required>
+          <label for="f-aceite">Li e concordo com a <a href="politica-de-privacidade.html">Política de Privacidade</a>.</label>
+        </div>
+        <button class="botao botao--cheio" type="submit">Enviar mensagem</button>
+        <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 </main>
@@ -522,6 +625,7 @@ p { margin: 0; }
       <a href="#como-trabalhamos">Como trabalhamos</a>
       <a href="#sobre">Sobre</a>
       <a href="#contato">Contato</a>
+      <a href="politica-de-privacidade.html">Privacidade</a>
     </nav>
     <span class="rodape__copy">© <span id="ano">2026</span> JITS · jits.dev.br · Fortaleza – CE</span>
   </div>
@@ -534,6 +638,76 @@ p { margin: 0; }
 
 <script>
   document.getElementById('ano').textContent = new Date().getFullYear();
+
+  // Formulário de contato: envia pelo Web3Forms para o e-mail cadastrado na chave.
+  (function () {
+    var CHAVE_WEB3FORMS = '9b29d15f-eb41-4104-a9c1-6d5c21378493';
+    var form = document.getElementById('form-contato');
+    if (!form) return;
+    var status = document.getElementById('form-status');
+    var botao = form.querySelector('button[type="submit"]');
+
+    function avisar(texto, tipo) {
+      status.textContent = texto;
+      status.className = 'form__status' + (tipo ? ' ' + tipo : '');
+    }
+
+    form.addEventListener('input', function (e) {
+      if (e.target.getAttribute('aria-invalid') === 'true' && e.target.checkValidity()) {
+        e.target.removeAttribute('aria-invalid');
+      }
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var invalidos = Array.prototype.filter.call(form.elements, function (el) {
+        return el.willValidate && !el.checkValidity();
+      });
+      Array.prototype.forEach.call(form.elements, function (el) { el.removeAttribute('aria-invalid'); });
+      if (invalidos.length) {
+        invalidos.forEach(function (el) { el.setAttribute('aria-invalid', 'true'); });
+        invalidos[0].focus();
+        var el = invalidos[0];
+        var msg = el.type === 'checkbox' ? 'Para enviar, marque que concorda com a Política de Privacidade.'
+          : el.type === 'email' && el.value ? 'Confira o e-mail: ele parece incompleto.'
+          : 'Preencha os campos obrigatórios: nome, e-mail, o que você precisa e a mensagem.';
+        avisar(msg, 'erro');
+        return;
+      }
+
+      var dados = {};
+      new FormData(form).forEach(function (valor, chave) { dados[chave] = valor; });
+      if (dados.botcheck) return;
+      delete dados.botcheck;
+      delete dados.aceite;
+      dados.access_key = CHAVE_WEB3FORMS;
+      dados.subject = 'Contato pelo site: ' + dados.projeto + ' (' + dados.name + ')';
+      dados.from_name = 'Site JITS';
+
+      botao.disabled = true;
+      botao.textContent = 'Enviando…';
+      avisar('', '');
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(dados)
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (!res.success) throw new Error(res.message || 'falha');
+          form.reset();
+          avisar('Mensagem enviada. Vamos responder no e-mail que você informou.', 'ok');
+        })
+        .catch(function () {
+          avisar('Não foi possível enviar agora. Tente de novo em instantes ou fale com a gente pelo WhatsApp (85) 99736-1426.', 'erro');
+        })
+        .then(function () {
+          botao.disabled = false;
+          botao.textContent = 'Enviar mensagem';
+        });
+    });
+  })();
 
   // Terminal do início: digita os comandos, imprime as respostas e termina com o cursor piscando.
   (function () {

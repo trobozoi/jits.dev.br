@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jits.dev.br/sitemap.xml
