@@ -218,6 +218,41 @@ p { margin: 0; }
   min-height: 44px; font-weight: 600; text-decoration: none; color: var(--vermelho);
 }
 .projeto__link:hover { color: var(--vermelho-claro); }
+.vitrine {
+  border: 1px solid var(--linha); background: var(--grafite-2);
+  padding: clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 40px;
+}
+.vitrine__topo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+@media (max-width: 960px) { .vitrine__topo { grid-template-columns: minmax(0, 1fr); gap: 36px; } }
+.partes { list-style: none; margin: 4px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--linha); border: 1px solid var(--linha); }
+@media (max-width: 480px) { .partes { grid-template-columns: minmax(0, 1fr); } }
+.partes li { background: var(--grafite-2); padding: 16px 18px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.partes strong { font-family: var(--f-display); font-size: 17px; color: var(--branco); }
+.partes span { font-family: var(--f-mono); font-size: 12px; color: var(--texto-suave); }
+.partes a { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; min-height: 36px; font-size: 14px; font-weight: 600; color: var(--vermelho); text-decoration: none; }
+.partes a:hover { color: var(--vermelho-claro); }
+.partes svg { width: 16px; height: 16px; flex: none; }
+.celulares { display: flex; justify-content: center; align-items: flex-end; gap: clamp(10px, 2vw, 20px); margin: 0; }
+.celular {
+  flex: 1 1 0; max-width: 190px; min-width: 0; margin: 0;
+  background: #000; border: 1px solid #333; border-radius: clamp(14px, 2.4vw, 26px);
+  padding: clamp(4px, 0.8vw, 7px); box-shadow: 0 24px 48px rgba(0, 0, 0, .45);
+}
+.celular img { display: block; width: 100%; height: auto; aspect-ratio: 606 / 1150; border-radius: clamp(10px, 1.9vw, 20px); }
+.celular:nth-child(2) { transform: translateY(-28px); }
+.celulares-wrap figcaption { font-family: var(--f-mono); font-size: 12px; color: var(--texto-suave); text-align: center; margin-top: 12px; }
+.telas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+@media (max-width: 760px) { .telas { grid-template-columns: minmax(0, 1fr); } }
+.telas figure { margin: 0; min-width: 0; }
+.telas .tela--larga { grid-column: 1 / -1; }
+.telas .projeto__tela { border-color: #2E2E2E; }
+.telas .tela--larga img { aspect-ratio: 1600 / 592; }
+.vitrine.projeto:hover .projeto__tela { border-color: #2E2E2E; }
+.vitrine.projeto:hover .projeto__tela img { transform: none; }
+.telas figure:hover .projeto__tela { border-color: var(--vermelho); }
+.telas figure:hover .projeto__tela img { transform: scale(1.03); }
+.celulares { padding-top: 28px; }
+@media (max-width: 760px) { .telas .tela--larga img { aspect-ratio: 1000 / 592; object-position: left top; } }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* Como trabalhamos */
@@ -517,8 +552,48 @@ p { margin: 0; }
       <div class="secao__cabeca">
         <p class="rotulo">Portfólio</p>
         <h2>Projetos conceito</h2>
-        <p>Sites que a JITS criou para mostrar como pensa identidade, conteúdo e conversão. Cada um imagina um negócio diferente, com visual e linguagem próprios. Estão no ar e você pode navegar à vontade.</p>
+        <p>Sistemas e sites que a JITS criou para mostrar como pensa arquitetura, identidade e experiência de uso. Cada um imagina um negócio diferente. Os sites estão no ar, e o código dos sistemas está aberto no GitHub.</p>
       </div>
+      <article class="vitrine projeto">
+        <div class="vitrine__topo">
+          <div class="projeto__info">
+            <span class="servico__rota">/varejo · Fortaleza, CE</span>
+            <h3>Super Benfica: plataforma para rede de supermercados</h3>
+            <p>Conceito de sistema completo para uma rede com três filiais. O cliente compra pelo app ou pelo site, a equipe separa os pedidos com leitor de código de barras e a gerência acompanha vendas e estoque de cada loja. Tudo conversa em tempo real.</p>
+            <ul class="projeto__tags">
+              <li class="projeto__tag--conceito">Projeto conceito</li>
+              <li>Tempo real</li>
+              <li>Multi-filial</li>
+              <li>5 perfis de acesso</li>
+            </ul>
+            <ul class="partes">
+                <li><strong>API REST</strong><span>Django · WebSocket · JWT</span><a href="https://github.com/trobozoi/superbenfica-api" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Código no GitHub<span class="sr"> do API REST do Super Benfica (abre em nova aba)</span></a></li>
+                <li><strong>Loja online</strong><span>Next.js · React</span><a href="https://github.com/trobozoi/superbenfica-web" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Código no GitHub<span class="sr"> do Loja online do Super Benfica (abre em nova aba)</span></a></li>
+                <li><strong>Portal administrativo</strong><span>Next.js · React</span><a href="https://github.com/trobozoi/superbenfica-admin" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Código no GitHub<span class="sr"> do Portal administrativo do Super Benfica (abre em nova aba)</span></a></li>
+                <li><strong>App mobile</strong><span>React Native · Expo</span><a href="https://github.com/trobozoi/superbenfica-mobile" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Código no GitHub<span class="sr"> do App mobile do Super Benfica (abre em nova aba)</span></a></li>
+            </ul>
+          </div>
+          <figure class="celulares-wrap" style="margin:0">
+            <div class="celulares">
+              <div class="celular"><img src="portfolio/superbenfica-app-inicio.jpg" width="606" height="1150" loading="lazy" alt="App Super Benfica: tela inicial com busca, pedido em andamento, categorias e produtos em destaque"></div>
+              <div class="celular"><img src="portfolio/superbenfica-app-pedido.jpg" width="606" height="1150" loading="lazy" alt="App Super Benfica: acompanhamento do pedido em tempo real, etapa Separado"></div>
+              <div class="celular"><img src="portfolio/superbenfica-app-carrinho.jpg" width="606" height="1150" loading="lazy" alt="App Super Benfica: carrinho com produtos e total estimado"></div>
+            </div>
+            <figcaption>App mobile · início, pedido e carrinho</figcaption>
+          </figure>
+        </div>
+        <div class="telas">
+          <figure class="tela--larga">
+            <div class="projeto__tela"><span class="projeto__barra"><span class="terminal__pontos"><span></span><span></span><span></span></span><span class="projeto__url">Portal administrativo · Dashboard</span></span><img src="portfolio/superbenfica-admin.jpg" width="1600" height="592" loading="lazy" alt="Portal administrativo do Super Benfica: faturamento, pedidos por status, faturamento por filial e estoque crítico"></div>
+          </figure>
+          <figure>
+            <div class="projeto__tela"><span class="projeto__barra"><span class="terminal__pontos"><span></span><span></span><span></span></span><span class="projeto__url">Loja online · Produtos</span></span><img src="portfolio/superbenfica-loja.jpg" width="1280" height="800" loading="lazy" alt="Loja online do Super Benfica: catálogo com busca, categorias e produtos"></div>
+          </figure>
+          <figure>
+            <div class="projeto__tela"><span class="projeto__barra"><span class="terminal__pontos"><span></span><span></span><span></span></span><span class="projeto__url">API · Documentação</span></span><img src="portfolio/superbenfica-api.jpg" width="1280" height="800" loading="lazy" alt="Página inicial da API do Super Benfica com os módulos e exemplo de autenticação"></div>
+          </figure>
+        </div>
+      </article>
       <div class="projetos">
         <article class="projeto">
           <a class="projeto__tela" href="https://aurum-estetica.vercel.app/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
