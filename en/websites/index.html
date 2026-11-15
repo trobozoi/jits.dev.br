@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Website and online store development · JITS</title>
-<meta name="description" content="Fast, responsive company websites, online stores and landing pages, ready for Google. Software house in Brazil, working with clients worldwide.">
+<title>Professional website development · JITS</title>
+<meta name="description" content="A complete professional website, with an audit, local Google presence and copy review as add-ons. Software house in Brazil, working with clients worldwide.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -199,9 +199,11 @@ main:focus { outline: none; }
 .secao__cabeca p { font-size: 1.125rem; color: var(--texto); }
 
 /* Serviços */
-.servicos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
-@media (max-width: 65em) { .servicos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 35em) { .servicos { grid-template-columns: minmax(0, 1fr); } }
+.servicos { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1.25rem; }
+.servicos > .servico { grid-column: span 2; }
+.servicos > .servico:nth-last-child(-n+2):nth-child(3n+1), .servicos > .servico:nth-last-child(-n+2):nth-child(3n+1) + .servico { grid-column: span 3; }
+@media (max-width: 65em) { .servicos { grid-template-columns: repeat(2, minmax(0, 1fr)); } .servicos > .servico, .servicos > .servico:nth-last-child(-n+2):nth-child(3n+1), .servicos > .servico:nth-last-child(-n+2):nth-child(3n+1) + .servico { grid-column: auto; } .servicos > .servico:last-child:nth-child(odd) { grid-column: 1 / -1 !important; } }
+@media (max-width: 35em) { .servicos { grid-template-columns: minmax(0, 1fr); } .servicos > .servico:last-child:nth-child(odd) { grid-column: auto !important; } }
 .servico {
   background: var(--preto); border: 1px solid var(--linha);
   padding: 1.875rem 1.75rem 2rem; display: flex; flex-direction: column; gap: 0.875rem;
@@ -465,8 +467,10 @@ a.canal__valor { color: inherit; text-decoration: none; }
 .pagina-hero h1 .cursor { width: 0.42em; height: 0.16em; margin-left: 0.08em; }
 .pagina-hero .hero__apoio { max-width: 44rem; }
 .servicos--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.servicos--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.servicos--3 > .servico, .servicos--2 > .servico { grid-column: auto !important; }
 @media (max-width: 65em) { .servicos--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 35em) { .servicos--3 { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 35em) { .servicos--3, .servicos--2 { grid-template-columns: minmax(0, 1fr); } }
 .secao--grafite .servico { background: var(--preto); }
 .secao:not(.secao--grafite) .servico { background: var(--grafite-2); }
 .sinais { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2.5rem; max-width: 60rem; }
@@ -540,8 +544,8 @@ a.canal__valor { color: inherit; text-decoration: none; }
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="JITS">
-<meta property="og:title" content="Website and online store development · JITS">
-<meta property="og:description" content="Fast, responsive company websites, online stores and landing pages, ready for Google. Software house in Brazil, working with clients worldwide.">
+<meta property="og:title" content="Professional website development · JITS">
+<meta property="og:description" content="A complete professional website, with an audit, local Google presence and copy review as add-ons. Software house in Brazil, working with clients worldwide.">
 <meta property="og:url" content="https://jits.dev.br/en/websites/">
 <meta property="og:image" content="https://jits.dev.br/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -551,7 +555,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
 <link rel="alternate" hreflang="pt-BR" href="https://jits.dev.br/sites/">
 <link rel="alternate" hreflang="x-default" href="https://jits.dev.br/sites/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "Websites and e-commerce", "description": "Fast, responsive company websites, online stores and landing pages, ready for Google. Software house in Brazil, working with clients worldwide.", "url": "https://jits.dev.br/en/websites/", "provider": {"@type": "ProfessionalService", "name": "JITS", "url": "https://jits.dev.br/"}, "areaServed": "Worldwide"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How long until the website is ready?", "acceptedAnswer": {"@type": "Answer", "text": "A company website is usually ready in a few weeks. An online store, which has more critical parts such as payment and inventory, usually takes 3 to 6 months. The timeline comes in writing with the proposal."}}, {"@type": "Question", "name": "How does payment work?", "acceptedAnswer": {"@type": "Answer", "text": "Under our standard terms, you pay nothing up front: 50% on delivery and 50% after 1 month without bugs. If you cancel during development, you pay nothing. The terms are set in writing in the proposal."}}, {"@type": "Question", "name": "What if a bug shows up after delivery?", "acceptedAnswer": {"@type": "Answer", "text": "After delivery, you have 1 month to test. If a bug shows up, we fix it at no cost and the month starts over. After that, we continue with maintenance and support."}}, {"@type": "Question", "name": "Do you handle domain, hosting and email?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We help register the domain, publish the site and set up professional email under your company's name. That is what we did for this site: its own domain, hosting and email."}}, {"@type": "Question", "name": "Will the site show up on Google?", "acceptedAnswer": {"@type": "Answer", "text": "We deliver the site prepared for search and registered with Google. Ranking also depends on competition and time, and nobody can promise first place."}}, {"@type": "Question", "name": "Can I update the content later?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We decide together what works best: a panel for you to edit or a maintenance plan with us."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "JITS", "item": "https://jits.dev.br/en/"}, {"@type": "ListItem", "position": 2, "name": "Websites and e-commerce", "item": "https://jits.dev.br/en/websites/"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "Professional websites", "description": "A complete professional website, with an audit, local Google presence and copy review as add-ons. Software house in Brazil, working with clients worldwide.", "url": "https://jits.dev.br/en/websites/", "provider": {"@type": "ProfessionalService", "name": "JITS", "url": "https://jits.dev.br/"}, "areaServed": "Worldwide"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How long until the website is ready?", "acceptedAnswer": {"@type": "Answer", "text": "A company website is usually ready in a few weeks. The add-ons can be done at the same time or later. The timeline comes in writing with the proposal."}}, {"@type": "Question", "name": "How does payment work?", "acceptedAnswer": {"@type": "Answer", "text": "Under our standard terms, you pay nothing up front: 50% on delivery and 50% after 1 month without bugs. If you cancel during development, you pay nothing. The terms are set in writing in the proposal."}}, {"@type": "Question", "name": "What if a bug shows up after delivery?", "acceptedAnswer": {"@type": "Answer", "text": "After delivery, you have 1 month to test. If a bug shows up, we fix it at no cost and the month starts over. After that, we continue with maintenance and support."}}, {"@type": "Question", "name": "How do I build my package?", "acceptedAnswer": {"@type": "Answer", "text": "In our first conversation, you choose the website and the add-ons you want. The proposal lists the website and each add-on separately, so you decide what goes in before closing."}}, {"@type": "Question", "name": "Can I hire only the audit?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The audit can be hired on its own by anyone who already has a website. If the site runs on a ready-made platform, such as Wix or WordPress, we apply the fixes the platform allows."}}, {"@type": "Question", "name": "Do you handle domain, hosting and email?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We help register the domain, publish the site and set up professional email under your company's name. That is what we did for this site: its own domain, hosting and email."}}, {"@type": "Question", "name": "Will the site show up on Google?", "acceptedAnswer": {"@type": "Answer", "text": "We deliver the site prepared for search and registered with Google. Ranking also depends on competition and time, and nobody can promise first place."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "JITS", "item": "https://jits.dev.br/en/"}, {"@type": "ListItem", "position": 2, "name": "Professional websites", "item": "https://jits.dev.br/en/websites/"}]}]}</script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0872b762b6cc4ab59058999d9352dca9"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
@@ -576,8 +580,8 @@ a.canal__valor { color: inherit; text-decoration: none; }
   <section class="faixa pagina-hero">
     <div class="miolo">
       <p class="rotulo"><a href="/en/#servicos">Services</a> · /websites</p>
-      <h1>Websites and online stores that work for you every day<span class="cursor" aria-hidden="true"></span></h1>
-      <p class="hero__apoio">Fast websites that look good on any screen and are easy to find on Google, made to present your brand and turn visits into leads and sales.</p>
+      <h1>Professional websites, from domain to Google<span class="cursor" aria-hidden="true"></span></h1>
+      <p class="hero__apoio">A complete website for your company and, if it makes sense, the add-ons you choose when you hire us: an audit of your current site, local presence on Google and copy review in Portuguese and English.</p>
       <div class="acoes">
         <a class="botao botao--cheio" href="/en/#contato">Request a quote</a>
         <a class="botao botao--vazio" href="https://wa.me/5585997361426?text=Hello%2C%20JITS%21%20I%27d%20like%20to%20talk%20about%20a%20website." target="_blank" rel="noopener">Chat on WhatsApp</a>
@@ -589,38 +593,32 @@ a.canal__valor { color: inherit; text-decoration: none; }
     <div class="miolo">
       <div class="secao__cabeca">
         <p class="rotulo">What we do</p>
-        <h2>From a company website to a complete store</h2>
+        <h2>Build your package</h2>
       </div>
-      <div class="servicos servicos--3">
+      <div class="servicos servicos--2">
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
-          <h3>Company websites</h3>
-          <p>Your company's presence on the internet, with its own identity and copy written for the people who will read it.</p>
+          <span class="servico__rota">Main</span>
+          <h3>Complete professional website</h3>
+          <p>A website with its own identity, fast on phones and ready for Google. It includes the domain, email under your company's name, a contact form with a privacy policy and visitor statistics.</p>
         </article>
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
-          <h3>Online stores</h3>
-          <p>Catalog, cart, payment and order tracking, integrated with your inventory.</p>
+          <span class="servico__rota">Add-on · also on its own</span>
+          <h3>Audit and fixes for an existing website</h3>
+          <p>We review the site you already have: code, mobile, accessibility, security, speed and Google. You get a report and the fixes applied.</p>
         </article>
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
-          <h3>Landing pages</h3>
-          <p>Pages focused on a single goal: generating leads, bookings or sales.</p>
+          <span class="servico__rota">Add-on</span>
+          <h3>Local presence on Google</h3>
+          <p>Google Business Profile, Google Search Console setup and analysis of your statistics, so people looking for your service in your city find your company.</p>
         </article>
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
-          <h3>Fast and responsive</h3>
-          <p>They load quickly and work well on phones, where most visits happen.</p>
-        </article>
-        <article class="servico">
-          <span class="servico__marca" aria-hidden="true"></span>
-          <h3>Ready for Google</h3>
-          <p>Structure, copy and technical data prepared for search, with Google Search Console set up.</p>
-        </article>
-        <article class="servico">
-          <span class="servico__marca" aria-hidden="true"></span>
-          <h3>One-tap contact</h3>
-          <p>Form, WhatsApp and online booking always at hand, so visitors become customers.</p>
+          <span class="servico__rota">Add-on</span>
+          <h3>Copy review in Portuguese and English</h3>
+          <p>A full review of the site's copy in both languages: grammar, clarity and calls to action. Ideal if you serve clients abroad.</p>
         </article>
       </div>
     </div>
@@ -637,8 +635,8 @@ a.canal__valor { color: inherit; text-decoration: none; }
         <li>The current site is slow to open or looks broken on phones.</li>
         <li>People searching for your service on Google do not find your company.</li>
         <li>The site gets visits, but almost nobody gets in touch.</li>
-        <li>You want to sell online without relying only on marketplaces.</li>
-        <li>The look no longer matches where the company is today.</li>
+        <li>You are not sure whether your current site is set up correctly and securely.</li>
+        <li>You serve clients abroad, and the site is only in Portuguese.</li>
       </ul>
     </div>
   </section>
@@ -666,7 +664,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
       <div class="faq">
         <details>
           <summary>How long until the website is ready?</summary>
-          <p>A company website is usually ready in a few weeks. An online store, which has more critical parts such as payment and inventory, usually takes 3 to 6 months. The timeline comes in writing with the proposal.</p>
+          <p>A company website is usually ready in a few weeks. The add-ons can be done at the same time or later. The timeline comes in writing with the proposal.</p>
         </details>
         <details>
           <summary>How does payment work?</summary>
@@ -677,6 +675,14 @@ a.canal__valor { color: inherit; text-decoration: none; }
           <p>After delivery, you have 1 month to test. If a bug shows up, we fix it at no cost and the month starts over. After that, we continue with maintenance and support.</p>
         </details>
         <details>
+          <summary>How do I build my package?</summary>
+          <p>In our first conversation, you choose the website and the add-ons you want. The proposal lists the website and each add-on separately, so you decide what goes in before closing.</p>
+        </details>
+        <details>
+          <summary>Can I hire only the audit?</summary>
+          <p>Yes. The audit can be hired on its own by anyone who already has a website. If the site runs on a ready-made platform, such as Wix or WordPress, we apply the fixes the platform allows.</p>
+        </details>
+        <details>
           <summary>Do you handle domain, hosting and email?</summary>
           <p>Yes. We help register the domain, publish the site and set up professional email under your company's name. That is what we did for this site: its own domain, hosting and email.</p>
         </details>
@@ -684,18 +690,14 @@ a.canal__valor { color: inherit; text-decoration: none; }
           <summary>Will the site show up on Google?</summary>
           <p>We deliver the site prepared for search and registered with Google. Ranking also depends on competition and time, and nobody can promise first place.</p>
         </details>
-        <details>
-          <summary>Can I update the content later?</summary>
-          <p>Yes. We decide together what works best: a panel for you to edit or a maintenance plan with us.</p>
-        </details>
       </div>
       <div class="stack">
         <h3 class="stack__titulo">Technologies we use</h3>
-        <dl class="stack__grade" style="display:block"><div class="stack__grupo"><dt class="sr">Technologies we use</dt><dd><span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Laravel</span><span>PHP</span></dd></div></dl>
+        <dl class="stack__grade" style="display:block"><div class="stack__grupo"><dt class="sr">Technologies we use</dt><dd><span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Google Search Console</span><span>Lighthouse</span></dd></div></dl>
       </div>
       <div class="stack">
         <h3 class="stack__titulo">Other services</h3>
-        <div class="outros"><a href="/en/custom-software/">Custom software</a><a href="/en/mobile-apps/">Mobile apps</a><a href="/en/it-consulting/">IT consulting</a></div>
+        <div class="outros"><a href="/en/custom-software/">Custom software</a><a href="/en/mobile-apps/">Mobile apps</a><a href="/en/e-commerce/">E-commerce</a><a href="/en/it-consulting/">IT consulting</a></div>
       </div>
     </div>
   </section>

@@ -199,9 +199,11 @@ main:focus { outline: none; }
 .secao__cabeca p { font-size: 1.125rem; color: var(--texto); }
 
 /* Serviços */
-.servicos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
-@media (max-width: 65em) { .servicos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 35em) { .servicos { grid-template-columns: minmax(0, 1fr); } }
+.servicos { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1.25rem; }
+.servicos > .servico { grid-column: span 2; }
+.servicos > .servico:nth-last-child(-n+2):nth-child(3n+1), .servicos > .servico:nth-last-child(-n+2):nth-child(3n+1) + .servico { grid-column: span 3; }
+@media (max-width: 65em) { .servicos { grid-template-columns: repeat(2, minmax(0, 1fr)); } .servicos > .servico, .servicos > .servico:nth-last-child(-n+2):nth-child(3n+1), .servicos > .servico:nth-last-child(-n+2):nth-child(3n+1) + .servico { grid-column: auto; } .servicos > .servico:last-child:nth-child(odd) { grid-column: 1 / -1 !important; } }
+@media (max-width: 35em) { .servicos { grid-template-columns: minmax(0, 1fr); } .servicos > .servico:last-child:nth-child(odd) { grid-column: auto !important; } }
 .servico {
   background: var(--preto); border: 1px solid var(--linha);
   padding: 1.875rem 1.75rem 2rem; display: flex; flex-direction: column; gap: 0.875rem;
@@ -465,8 +467,10 @@ a.canal__valor { color: inherit; text-decoration: none; }
 .pagina-hero h1 .cursor { width: 0.42em; height: 0.16em; margin-left: 0.08em; }
 .pagina-hero .hero__apoio { max-width: 44rem; }
 .servicos--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.servicos--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.servicos--3 > .servico, .servicos--2 > .servico { grid-column: auto !important; }
 @media (max-width: 65em) { .servicos--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 35em) { .servicos--3 { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 35em) { .servicos--3, .servicos--2 { grid-template-columns: minmax(0, 1fr); } }
 .secao--grafite .servico { background: var(--preto); }
 .secao:not(.secao--grafite) .servico { background: var(--grafite-2); }
 .sinais { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2.5rem; max-width: 60rem; }
@@ -695,7 +699,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
       </div>
       <div class="stack">
         <h3 class="stack__titulo">Other services</h3>
-        <div class="outros"><a href="/en/mobile-apps/">Mobile apps</a><a href="/en/websites/">Websites and e-commerce</a><a href="/en/it-consulting/">IT consulting</a></div>
+        <div class="outros"><a href="/en/mobile-apps/">Mobile apps</a><a href="/en/websites/">Professional websites</a><a href="/en/e-commerce/">E-commerce</a><a href="/en/it-consulting/">IT consulting</a></div>
       </div>
     </div>
   </section>

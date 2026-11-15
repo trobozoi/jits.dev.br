@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Custom software and website development in Brazil · JITS</title>
-<meta name="description" content="Software house in Fortaleza, Brazil: custom software, legacy system modernization, mobile apps, websites and IT consulting for clients worldwide.">
+<meta name="description" content="Software house in Fortaleza, Brazil: custom software, legacy system modernization, mobile apps, websites, e-commerce and IT consulting for clients worldwide.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -199,9 +199,11 @@ main:focus { outline: none; }
 .secao__cabeca p { font-size: 1.125rem; color: var(--texto); }
 
 /* Serviços */
-.servicos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
-@media (max-width: 65em) { .servicos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 35em) { .servicos { grid-template-columns: minmax(0, 1fr); } }
+.servicos { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1.25rem; }
+.servicos > .servico { grid-column: span 2; }
+.servicos > .servico:nth-last-child(-n+2):nth-child(3n+1), .servicos > .servico:nth-last-child(-n+2):nth-child(3n+1) + .servico { grid-column: span 3; }
+@media (max-width: 65em) { .servicos { grid-template-columns: repeat(2, minmax(0, 1fr)); } .servicos > .servico, .servicos > .servico:nth-last-child(-n+2):nth-child(3n+1), .servicos > .servico:nth-last-child(-n+2):nth-child(3n+1) + .servico { grid-column: auto; } .servicos > .servico:last-child:nth-child(odd) { grid-column: 1 / -1 !important; } }
+@media (max-width: 35em) { .servicos { grid-template-columns: minmax(0, 1fr); } .servicos > .servico:last-child:nth-child(odd) { grid-column: auto !important; } }
 .servico {
   background: var(--preto); border: 1px solid var(--linha);
   padding: 1.875rem 1.75rem 2rem; display: flex; flex-direction: column; gap: 0.875rem;
@@ -465,8 +467,10 @@ a.canal__valor { color: inherit; text-decoration: none; }
 .pagina-hero h1 .cursor { width: 0.42em; height: 0.16em; margin-left: 0.08em; }
 .pagina-hero .hero__apoio { max-width: 44rem; }
 .servicos--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.servicos--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.servicos--3 > .servico, .servicos--2 > .servico { grid-column: auto !important; }
 @media (max-width: 65em) { .servicos--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 35em) { .servicos--3 { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 35em) { .servicos--3, .servicos--2 { grid-template-columns: minmax(0, 1fr); } }
 .secao--grafite .servico { background: var(--preto); }
 .secao:not(.secao--grafite) .servico { background: var(--grafite-2); }
 .sinais { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2.5rem; max-width: 60rem; }
@@ -578,7 +582,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
   },
   "address": { "@type": "PostalAddress", "addressLocality": "Fortaleza", "addressRegion": "CE", "addressCountry": "BR" },
   "areaServed": "Worldwide",
-  "knowsAbout": ["Custom software development", "Legacy system modernization", "Mobile apps", "Websites and e-commerce", "IT consulting"]
+  "knowsAbout": ["Custom software development", "Legacy system modernization", "Mobile apps", "Professional websites", "E-commerce", "IT consulting"]
 }
 </script>
 </head>
@@ -669,14 +673,27 @@ a.canal__valor { color: inherit; text-decoration: none; }
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
           <span class="servico__rota">/websites</span>
-          <h3>Websites and e-commerce</h3>
-          <p>Fast websites and online stores that present your brand and sell every day.</p>
+          <h3>Professional websites</h3>
+          <p>A complete website, from domain to Google, with add-ons you choose when you hire us.</p>
           <ul>
-            <li>Company websites</li>
-            <li>Online stores</li>
-            <li>Landing pages</li>
+            <li>Complete professional website</li>
+            <li>Audit of an existing website</li>
+            <li>Local presence on Google</li>
+            <li>Copy review in Portuguese and English</li>
           </ul>
-          <a class="servico__mais" href="https://jits.dev.br/en/websites/">See websites and e-commerce <span aria-hidden="true">→</span></a>
+          <a class="servico__mais" href="https://jits.dev.br/en/websites/">See professional websites <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="servico">
+          <span class="servico__marca" aria-hidden="true"></span>
+          <span class="servico__rota">/e-commerce</span>
+          <h3>E-commerce</h3>
+          <p>A custom online store, connected to your inventory and to the system your company already uses.</p>
+          <ul>
+            <li>Catalog and online payment</li>
+            <li>Integrated inventory</li>
+            <li>Real-time orders</li>
+          </ul>
+          <a class="servico__mais" href="https://jits.dev.br/en/e-commerce/">See e-commerce <span aria-hidden="true">→</span></a>
         </article>
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
@@ -948,7 +965,9 @@ a.canal__valor { color: inherit; text-decoration: none; }
             <option>Custom software</option>
             <option>Legacy system modernization</option>
             <option>Mobile app</option>
-            <option>Website or e-commerce</option>
+            <option>Professional website</option>
+            <option>Audit of an existing website</option>
+            <option>E-commerce</option>
             <option>IT consulting</option>
             <option>Something else</option>
           </select>

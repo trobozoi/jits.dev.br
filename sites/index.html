@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Criação de sites e lojas virtuais · JITS</title>
-<meta name="description" content="Sites institucionais, lojas virtuais e landing pages rápidos, responsivos e prontos para o Google. Softhouse em Fortaleza, com atendimento em todo o Brasil.">
+<title>Criação de sites profissionais em Fortaleza · JITS</title>
+<meta name="description" content="Site profissional completo, com auditoria, presença no Google e revisão de textos como adicionais. Softhouse em Fortaleza, com atendimento em todo o Brasil.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -199,9 +199,11 @@ main:focus { outline: none; }
 .secao__cabeca p { font-size: 1.125rem; color: var(--texto); }
 
 /* Serviços */
-.servicos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
-@media (max-width: 65em) { .servicos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 35em) { .servicos { grid-template-columns: minmax(0, 1fr); } }
+.servicos { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1.25rem; }
+.servicos > .servico { grid-column: span 2; }
+.servicos > .servico:nth-last-child(-n+2):nth-child(3n+1), .servicos > .servico:nth-last-child(-n+2):nth-child(3n+1) + .servico { grid-column: span 3; }
+@media (max-width: 65em) { .servicos { grid-template-columns: repeat(2, minmax(0, 1fr)); } .servicos > .servico, .servicos > .servico:nth-last-child(-n+2):nth-child(3n+1), .servicos > .servico:nth-last-child(-n+2):nth-child(3n+1) + .servico { grid-column: auto; } .servicos > .servico:last-child:nth-child(odd) { grid-column: 1 / -1 !important; } }
+@media (max-width: 35em) { .servicos { grid-template-columns: minmax(0, 1fr); } .servicos > .servico:last-child:nth-child(odd) { grid-column: auto !important; } }
 .servico {
   background: var(--preto); border: 1px solid var(--linha);
   padding: 1.875rem 1.75rem 2rem; display: flex; flex-direction: column; gap: 0.875rem;
@@ -465,8 +467,10 @@ a.canal__valor { color: inherit; text-decoration: none; }
 .pagina-hero h1 .cursor { width: 0.42em; height: 0.16em; margin-left: 0.08em; }
 .pagina-hero .hero__apoio { max-width: 44rem; }
 .servicos--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.servicos--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.servicos--3 > .servico, .servicos--2 > .servico { grid-column: auto !important; }
 @media (max-width: 65em) { .servicos--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 35em) { .servicos--3 { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 35em) { .servicos--3, .servicos--2 { grid-template-columns: minmax(0, 1fr); } }
 .secao--grafite .servico { background: var(--preto); }
 .secao:not(.secao--grafite) .servico { background: var(--grafite-2); }
 .sinais { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2.5rem; max-width: 60rem; }
@@ -540,8 +544,8 @@ a.canal__valor { color: inherit; text-decoration: none; }
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="JITS">
-<meta property="og:title" content="Criação de sites e lojas virtuais · JITS">
-<meta property="og:description" content="Sites institucionais, lojas virtuais e landing pages rápidos, responsivos e prontos para o Google. Softhouse em Fortaleza, com atendimento em todo o Brasil.">
+<meta property="og:title" content="Criação de sites profissionais em Fortaleza · JITS">
+<meta property="og:description" content="Site profissional completo, com auditoria, presença no Google e revisão de textos como adicionais. Softhouse em Fortaleza, com atendimento em todo o Brasil.">
 <meta property="og:url" content="https://jits.dev.br/sites/">
 <meta property="og:image" content="https://jits.dev.br/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -551,7 +555,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
 <link rel="alternate" hreflang="en" href="https://jits.dev.br/en/websites/">
 <link rel="alternate" hreflang="x-default" href="https://jits.dev.br/sites/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "Sites e e-commerce", "description": "Sites institucionais, lojas virtuais e landing pages rápidos, responsivos e prontos para o Google. Softhouse em Fortaleza, com atendimento em todo o Brasil.", "url": "https://jits.dev.br/sites/", "provider": {"@type": "ProfessionalService", "name": "JITS", "url": "https://jits.dev.br/"}, "areaServed": "BR"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Em quanto tempo o site fica pronto?", "acceptedAnswer": {"@type": "Answer", "text": "Um site institucional costuma ficar pronto em poucas semanas. Uma loja virtual, que tem mais pontos críticos, como pagamento e estoque, costuma levar de 3 a 6 meses. O prazo vem por escrito na proposta."}}, {"@type": "Question", "name": "Como funciona o pagamento?", "acceptedAnswer": {"@type": "Answer", "text": "Na condição padrão, você não paga nada no início: são 50% na entrega e 50% depois de 1 mês sem erros. Se desistir durante o desenvolvimento, não paga nada. As condições ficam por escrito na proposta."}}, {"@type": "Question", "name": "E se aparecer um erro depois da entrega?", "acceptedAnswer": {"@type": "Answer", "text": "Depois da entrega, você tem 1 mês para testar. Se surgir um erro, corrigimos sem custo e a contagem do mês recomeça. Depois desse período, seguimos com manutenção e suporte."}}, {"@type": "Question", "name": "Vocês cuidam de domínio, hospedagem e e-mail?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Ajudamos a registrar o domínio, publicar o site e configurar o e-mail profissional com o nome da sua empresa. Foi o que fizemos neste site: domínio, hospedagem e e-mail próprios."}}, {"@type": "Question", "name": "O site vai aparecer no Google?", "acceptedAnswer": {"@type": "Answer", "text": "Entregamos o site preparado para a busca e cadastrado no Google. A posição depende também da concorrência e do tempo, e ninguém pode prometer o primeiro lugar."}}, {"@type": "Question", "name": "Consigo atualizar o conteúdo depois?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Definimos juntos a melhor forma: um painel para você editar ou um pacote de manutenção com a gente."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "JITS", "item": "https://jits.dev.br/"}, {"@type": "ListItem", "position": 2, "name": "Sites e e-commerce", "item": "https://jits.dev.br/sites/"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "Sites profissionais", "description": "Site profissional completo, com auditoria, presença no Google e revisão de textos como adicionais. Softhouse em Fortaleza, com atendimento em todo o Brasil.", "url": "https://jits.dev.br/sites/", "provider": {"@type": "ProfessionalService", "name": "JITS", "url": "https://jits.dev.br/"}, "areaServed": "BR"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Em quanto tempo o site fica pronto?", "acceptedAnswer": {"@type": "Answer", "text": "Um site institucional costuma ficar pronto em poucas semanas. Os adicionais podem ser feitos junto ou depois. O prazo vem por escrito na proposta."}}, {"@type": "Question", "name": "Como funciona o pagamento?", "acceptedAnswer": {"@type": "Answer", "text": "Na condição padrão, você não paga nada no início: são 50% na entrega e 50% depois de 1 mês sem erros. Se desistir durante o desenvolvimento, não paga nada. As condições ficam por escrito na proposta."}}, {"@type": "Question", "name": "E se aparecer um erro depois da entrega?", "acceptedAnswer": {"@type": "Answer", "text": "Depois da entrega, você tem 1 mês para testar. Se surgir um erro, corrigimos sem custo e a contagem do mês recomeça. Depois desse período, seguimos com manutenção e suporte."}}, {"@type": "Question", "name": "Como monto o meu pacote?", "acceptedAnswer": {"@type": "Answer", "text": "Na conversa inicial, você escolhe o site e os adicionais que quiser. A proposta separa o site e cada adicional, para você decidir o que entra antes de fechar."}}, {"@type": "Question", "name": "Posso contratar só a auditoria?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. A auditoria pode ser contratada sozinha, por quem já tem site. Se o site for feito em uma plataforma pronta, como Wix ou WordPress, aplicamos as correções que a plataforma permitir."}}, {"@type": "Question", "name": "Vocês cuidam de domínio, hospedagem e e-mail?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Ajudamos a registrar o domínio, publicar o site e configurar o e-mail profissional com o nome da sua empresa. Foi o que fizemos neste site: domínio, hospedagem e e-mail próprios."}}, {"@type": "Question", "name": "O site vai aparecer no Google?", "acceptedAnswer": {"@type": "Answer", "text": "Entregamos o site preparado para a busca e cadastrado no Google. A posição depende também da concorrência e do tempo, e ninguém pode prometer o primeiro lugar."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "JITS", "item": "https://jits.dev.br/"}, {"@type": "ListItem", "position": 2, "name": "Sites profissionais", "item": "https://jits.dev.br/sites/"}]}]}</script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0872b762b6cc4ab59058999d9352dca9"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
@@ -576,8 +580,8 @@ a.canal__valor { color: inherit; text-decoration: none; }
   <section class="faixa pagina-hero">
     <div class="miolo">
       <p class="rotulo"><a href="/#servicos">Serviços</a> · /sites</p>
-      <h1>Sites e lojas virtuais que trabalham por você todos os dias<span class="cursor" aria-hidden="true"></span></h1>
-      <p class="hero__apoio">Sites rápidos, bonitos em qualquer tela e fáceis de encontrar no Google, feitos para apresentar a sua marca e transformar visitas em contatos e vendas.</p>
+      <h1>Sites profissionais, do domínio ao Google<span class="cursor" aria-hidden="true"></span></h1>
+      <p class="hero__apoio">Um site completo para a sua empresa e, se fizer sentido, os adicionais que você escolher na contratação: auditoria do site atual, presença local no Google e revisão de textos em português e inglês.</p>
       <div class="acoes">
         <a class="botao botao--cheio" href="/#contato">Solicitar orçamento</a>
         <a class="botao botao--vazio" href="https://wa.me/5585997361426?text=Ol%C3%A1%2C%20JITS%21%20Quero%20conversar%20sobre%20um%20site." target="_blank" rel="noopener">Conversar no WhatsApp</a>
@@ -589,38 +593,32 @@ a.canal__valor { color: inherit; text-decoration: none; }
     <div class="miolo">
       <div class="secao__cabeca">
         <p class="rotulo">O que fazemos</p>
-        <h2>Do site institucional à loja completa</h2>
+        <h2>Monte o seu pacote</h2>
       </div>
-      <div class="servicos servicos--3">
+      <div class="servicos servicos--2">
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
-          <h3>Sites institucionais</h3>
-          <p>A apresentação da sua empresa na internet, com identidade própria e texto pensado para quem vai ler.</p>
+          <span class="servico__rota">Principal</span>
+          <h3>Site profissional completo</h3>
+          <p>Site com identidade própria, rápido no celular e pronto para o Google. Inclui domínio, e-mail com o nome da empresa, formulário de contato com política de privacidade (LGPD) e estatísticas de visita.</p>
         </article>
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
-          <h3>Lojas virtuais</h3>
-          <p>Catálogo, carrinho, pagamento e acompanhamento de pedidos, integrados ao seu estoque.</p>
+          <span class="servico__rota">Adicional · também avulso</span>
+          <h3>Auditoria e correção de site existente</h3>
+          <p>Revisamos o site que você já tem: código, celular, acessibilidade, segurança, velocidade e Google. Você recebe um relatório e as correções aplicadas.</p>
         </article>
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
-          <h3>Páginas de campanha</h3>
-          <p>Landing pages focadas em um objetivo só: gerar contatos, agendamentos ou vendas.</p>
+          <span class="servico__rota">Adicional</span>
+          <h3>Presença local no Google</h3>
+          <p>Perfil da Empresa no Google, cadastro no Google Search Console e análise das estatísticas, para quem procura o seu serviço na sua cidade encontrar a sua empresa.</p>
         </article>
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
-          <h3>Rápidos e responsivos</h3>
-          <p>Carregam depressa e funcionam bem no celular, que é onde a maioria das visitas acontece.</p>
-        </article>
-        <article class="servico">
-          <span class="servico__marca" aria-hidden="true"></span>
-          <h3>Prontos para o Google</h3>
-          <p>Estrutura, textos e dados técnicos preparados para a busca, com cadastro no Google Search Console.</p>
-        </article>
-        <article class="servico">
-          <span class="servico__marca" aria-hidden="true"></span>
-          <h3>Contato em um toque</h3>
-          <p>Formulário, WhatsApp e agendamento online sempre à mão, para o visitante virar cliente.</p>
+          <span class="servico__rota">Adicional</span>
+          <h3>Revisão de textos em português e inglês</h3>
+          <p>Revisão completa dos textos do site nas duas línguas: gramática, clareza e chamadas para ação. Ideal para quem atende clientes de fora.</p>
         </article>
       </div>
     </div>
@@ -637,8 +635,8 @@ a.canal__valor { color: inherit; text-decoration: none; }
         <li>O site atual demora a abrir ou aparece desconfigurado no celular.</li>
         <li>Quem procura o seu serviço no Google não encontra a sua empresa.</li>
         <li>O site recebe visitas, mas quase ninguém entra em contato.</li>
-        <li>Você quer vender online sem depender apenas de marketplaces.</li>
-        <li>O visual não combina mais com o momento da empresa.</li>
+        <li>Você não sabe se o site atual está bem configurado e seguro.</li>
+        <li>Você atende clientes de fora, e o site só fala português.</li>
       </ul>
     </div>
   </section>
@@ -666,7 +664,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
       <div class="faq">
         <details>
           <summary>Em quanto tempo o site fica pronto?</summary>
-          <p>Um site institucional costuma ficar pronto em poucas semanas. Uma loja virtual, que tem mais pontos críticos, como pagamento e estoque, costuma levar de 3 a 6 meses. O prazo vem por escrito na proposta.</p>
+          <p>Um site institucional costuma ficar pronto em poucas semanas. Os adicionais podem ser feitos junto ou depois. O prazo vem por escrito na proposta.</p>
         </details>
         <details>
           <summary>Como funciona o pagamento?</summary>
@@ -677,6 +675,14 @@ a.canal__valor { color: inherit; text-decoration: none; }
           <p>Depois da entrega, você tem 1 mês para testar. Se surgir um erro, corrigimos sem custo e a contagem do mês recomeça. Depois desse período, seguimos com manutenção e suporte.</p>
         </details>
         <details>
+          <summary>Como monto o meu pacote?</summary>
+          <p>Na conversa inicial, você escolhe o site e os adicionais que quiser. A proposta separa o site e cada adicional, para você decidir o que entra antes de fechar.</p>
+        </details>
+        <details>
+          <summary>Posso contratar só a auditoria?</summary>
+          <p>Sim. A auditoria pode ser contratada sozinha, por quem já tem site. Se o site for feito em uma plataforma pronta, como Wix ou WordPress, aplicamos as correções que a plataforma permitir.</p>
+        </details>
+        <details>
           <summary>Vocês cuidam de domínio, hospedagem e e-mail?</summary>
           <p>Sim. Ajudamos a registrar o domínio, publicar o site e configurar o e-mail profissional com o nome da sua empresa. Foi o que fizemos neste site: domínio, hospedagem e e-mail próprios.</p>
         </details>
@@ -684,25 +690,21 @@ a.canal__valor { color: inherit; text-decoration: none; }
           <summary>O site vai aparecer no Google?</summary>
           <p>Entregamos o site preparado para a busca e cadastrado no Google. A posição depende também da concorrência e do tempo, e ninguém pode prometer o primeiro lugar.</p>
         </details>
-        <details>
-          <summary>Consigo atualizar o conteúdo depois?</summary>
-          <p>Sim. Definimos juntos a melhor forma: um painel para você editar ou um pacote de manutenção com a gente.</p>
-        </details>
       </div>
       <div class="stack">
         <h3 class="stack__titulo">Tecnologias que usamos</h3>
-        <dl class="stack__grade" style="display:block"><div class="stack__grupo"><dt class="sr">Tecnologias que usamos</dt><dd><span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Laravel</span><span>PHP</span></dd></div></dl>
+        <dl class="stack__grade" style="display:block"><div class="stack__grupo"><dt class="sr">Tecnologias que usamos</dt><dd><span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Google Search Console</span><span>Lighthouse</span></dd></div></dl>
       </div>
       <div class="stack">
         <h3 class="stack__titulo">Outros serviços</h3>
-        <div class="outros"><a href="/sistemas/">Sistemas sob medida</a><a href="/aplicativos/">Aplicativos</a><a href="/consultoria/">Consultoria em TI</a></div>
+        <div class="outros"><a href="/sistemas/">Sistemas sob medida</a><a href="/aplicativos/">Aplicativos</a><a href="/e-commerce/">E-commerce</a><a href="/consultoria/">Consultoria em TI</a></div>
       </div>
     </div>
   </section>
 
   <section class="faixa chamada">
     <div class="miolo">
-      <h2>Vamos criar o site da sua empresa?</h2>
+      <h2>Vamos montar o site da sua empresa?</h2>
       <p>Conte o que você precisa. Respondemos em até 1 dia útil com os próximos passos e, se fizer sentido, um orçamento sem custo.</p>
       <div class="acoes">
         <a class="botao" href="/#contato">Solicitar orçamento</a>

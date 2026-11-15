@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Desenvolvimento de sistemas e sites em Fortaleza · JITS</title>
-<meta name="description" content="Softhouse em Fortaleza: sistemas sob medida, modernização de sistemas legados, aplicativos, sites e consultoria em TI. Atendemos todo o Brasil.">
+<meta name="description" content="Softhouse em Fortaleza: sistemas sob medida, modernização de sistemas legados, aplicativos, sites, e-commerce e consultoria em TI. Atendemos todo o Brasil.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -199,9 +199,11 @@ main:focus { outline: none; }
 .secao__cabeca p { font-size: 1.125rem; color: var(--texto); }
 
 /* Serviços */
-.servicos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
-@media (max-width: 65em) { .servicos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 35em) { .servicos { grid-template-columns: minmax(0, 1fr); } }
+.servicos { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1.25rem; }
+.servicos > .servico { grid-column: span 2; }
+.servicos > .servico:nth-last-child(-n+2):nth-child(3n+1), .servicos > .servico:nth-last-child(-n+2):nth-child(3n+1) + .servico { grid-column: span 3; }
+@media (max-width: 65em) { .servicos { grid-template-columns: repeat(2, minmax(0, 1fr)); } .servicos > .servico, .servicos > .servico:nth-last-child(-n+2):nth-child(3n+1), .servicos > .servico:nth-last-child(-n+2):nth-child(3n+1) + .servico { grid-column: auto; } .servicos > .servico:last-child:nth-child(odd) { grid-column: 1 / -1 !important; } }
+@media (max-width: 35em) { .servicos { grid-template-columns: minmax(0, 1fr); } .servicos > .servico:last-child:nth-child(odd) { grid-column: auto !important; } }
 .servico {
   background: var(--preto); border: 1px solid var(--linha);
   padding: 1.875rem 1.75rem 2rem; display: flex; flex-direction: column; gap: 0.875rem;
@@ -465,8 +467,10 @@ a.canal__valor { color: inherit; text-decoration: none; }
 .pagina-hero h1 .cursor { width: 0.42em; height: 0.16em; margin-left: 0.08em; }
 .pagina-hero .hero__apoio { max-width: 44rem; }
 .servicos--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.servicos--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.servicos--3 > .servico, .servicos--2 > .servico { grid-column: auto !important; }
 @media (max-width: 65em) { .servicos--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 35em) { .servicos--3 { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 35em) { .servicos--3, .servicos--2 { grid-template-columns: minmax(0, 1fr); } }
 .secao--grafite .servico { background: var(--preto); }
 .secao:not(.secao--grafite) .servico { background: var(--grafite-2); }
 .sinais { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2.5rem; max-width: 60rem; }
@@ -578,7 +582,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
   },
   "address": { "@type": "PostalAddress", "addressLocality": "Fortaleza", "addressRegion": "CE", "addressCountry": "BR" },
   "areaServed": "BR",
-  "knowsAbout": ["Desenvolvimento de software sob medida", "Modernização de sistemas legados", "Aplicativos", "Sites e e-commerce", "Consultoria em TI"]
+  "knowsAbout": ["Desenvolvimento de software sob medida", "Modernização de sistemas legados", "Aplicativos", "Sites profissionais", "E-commerce", "Consultoria em TI"]
 }
 </script>
 </head>
@@ -669,14 +673,27 @@ a.canal__valor { color: inherit; text-decoration: none; }
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
           <span class="servico__rota">/sites</span>
-          <h3>Sites e e-commerce</h3>
-          <p>Sites rápidos e lojas virtuais que apresentam a sua marca e vendem todos os dias.</p>
+          <h3>Sites profissionais</h3>
+          <p>Site completo, do domínio ao Google, com adicionais que você escolhe na contratação.</p>
           <ul>
-            <li>Sites institucionais</li>
-            <li>Lojas virtuais</li>
-            <li>Páginas de campanha</li>
+            <li>Site profissional completo</li>
+            <li>Auditoria de site existente</li>
+            <li>Presença local no Google</li>
+            <li>Revisão de textos em português e inglês</li>
           </ul>
-          <a class="servico__mais" href="https://jits.dev.br/sites/">Ver sites e e-commerce <span aria-hidden="true">→</span></a>
+          <a class="servico__mais" href="https://jits.dev.br/sites/">Ver sites profissionais <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="servico">
+          <span class="servico__marca" aria-hidden="true"></span>
+          <span class="servico__rota">/e-commerce</span>
+          <h3>E-commerce</h3>
+          <p>Loja virtual sob medida, integrada ao estoque e ao sistema que a sua empresa já usa.</p>
+          <ul>
+            <li>Catálogo e pagamento online</li>
+            <li>Estoque integrado</li>
+            <li>Pedidos em tempo real</li>
+          </ul>
+          <a class="servico__mais" href="https://jits.dev.br/e-commerce/">Ver e-commerce <span aria-hidden="true">→</span></a>
         </article>
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
@@ -948,7 +965,9 @@ a.canal__valor { color: inherit; text-decoration: none; }
             <option>Sistema sob medida</option>
             <option>Modernização de sistema legado</option>
             <option>Aplicativo</option>
-            <option>Site ou e-commerce</option>
+            <option>Site profissional</option>
+            <option>Auditoria de site existente</option>
+            <option>E-commerce</option>
             <option>Consultoria em TI</option>
             <option>Outro assunto</option>
           </select>
