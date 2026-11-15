@@ -4,10 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sistemas sob medida e modernização de sistemas legados · JITS</title>
-<meta name="description" content="A JITS desenvolve sistemas de gestão sob medida e moderniza sistemas legados para empresas de indústria e comércio. Atendimento em Fortaleza, em todo o Brasil e remoto.">
+<meta name="description" content="Sistemas de gestão sob medida e modernização de sistemas legados para indústria e comércio. Softhouse em Fortaleza, com atendimento em todo o Brasil.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <style>
 /* Layout: uma coluna escura de 1200px; o "cursor" vermelho da marca é o fio condutor — aparece no logo, no hero e em cada bloco. */
 :root {
@@ -68,6 +70,14 @@ p { margin: 0; }
     padding-right: max(1rem, env(safe-area-inset-right, 0px));
   }
 }
+
+/* Link para pular direto ao conteúdo: só aparece quando recebe o foco do teclado. */
+.pular {
+  position: absolute; left: 1rem; top: -10rem; z-index: 20;
+  padding: 0.75rem 1rem; background: var(--vermelho); color: var(--preto); font-weight: 600; text-decoration: none;
+}
+.pular:focus { top: 1rem; }
+main:focus { outline: none; }
 
 /* Marca */
 .logo { display: inline-flex; align-items: flex-end; gap: 0.25rem; text-decoration: none; position: relative; }
@@ -531,7 +541,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="JITS">
 <meta property="og:title" content="Sistemas sob medida e modernização de sistemas legados · JITS">
-<meta property="og:description" content="A JITS desenvolve sistemas de gestão sob medida e moderniza sistemas legados para empresas de indústria e comércio. Atendimento em Fortaleza, em todo o Brasil e remoto.">
+<meta property="og:description" content="Sistemas de gestão sob medida e modernização de sistemas legados para indústria e comércio. Softhouse em Fortaleza, com atendimento em todo o Brasil.">
 <meta property="og:url" content="https://jits.dev.br/sistemas/">
 <meta property="og:image" content="https://jits.dev.br/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -541,10 +551,11 @@ a.canal__valor { color: inherit; text-decoration: none; }
 <link rel="alternate" hreflang="en" href="https://jits.dev.br/en/custom-software/">
 <link rel="alternate" hreflang="x-default" href="https://jits.dev.br/sistemas/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "Sistemas sob medida", "description": "A JITS desenvolve sistemas de gestão sob medida e moderniza sistemas legados para empresas de indústria e comércio. Atendimento em Fortaleza, em todo o Brasil e remoto.", "url": "https://jits.dev.br/sistemas/", "provider": {"@type": "ProfessionalService", "name": "JITS", "url": "https://jits.dev.br/"}, "areaServed": "BR"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quanto tempo leva para desenvolver um sistema?", "acceptedAnswer": {"@type": "Answer", "text": "Depende do tamanho. Trabalhamos em ciclos curtos, então você recebe versões para testar ao longo do caminho, em vez de esperar meses por uma entrega única. O prazo vem por escrito na proposta."}}, {"@type": "Question", "name": "Preciso trocar todo o meu sistema antigo de uma vez?", "acceptedAnswer": {"@type": "Answer", "text": "Não. Na maioria dos casos é melhor evoluir por partes: a operação continua rodando enquanto os módulos são modernizados um a um."}}, {"@type": "Question", "name": "O sistema fica sendo meu?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. O sistema é feito para a sua empresa, e as condições de entrega do código-fonte ficam definidas na proposta."}}, {"@type": "Question", "name": "Vocês atendem fora de Fortaleza?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. O atendimento é remoto para clientes de qualquer lugar e presencial em todo o Brasil."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "JITS", "item": "https://jits.dev.br/"}, {"@type": "ListItem", "position": 2, "name": "Sistemas sob medida", "item": "https://jits.dev.br/sistemas/"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "Sistemas sob medida", "description": "Sistemas de gestão sob medida e modernização de sistemas legados para indústria e comércio. Softhouse em Fortaleza, com atendimento em todo o Brasil.", "url": "https://jits.dev.br/sistemas/", "provider": {"@type": "ProfessionalService", "name": "JITS", "url": "https://jits.dev.br/"}, "areaServed": "BR"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quanto tempo leva para desenvolver um sistema?", "acceptedAnswer": {"@type": "Answer", "text": "Depende do tamanho. Um sistema complexo, como um e-commerce, costuma levar de 3 a 6 meses. Trabalhamos em ciclos curtos, então você recebe versões para testar ao longo do caminho. O prazo vem por escrito na proposta."}}, {"@type": "Question", "name": "Preciso trocar todo o meu sistema antigo de uma vez?", "acceptedAnswer": {"@type": "Answer", "text": "Não. Na maioria dos casos é melhor evoluir por partes: a operação continua rodando enquanto os módulos são modernizados um a um."}}, {"@type": "Question", "name": "O sistema passa a ser da minha empresa?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. O sistema é feito para a sua empresa, e as condições de entrega do código-fonte ficam definidas na proposta."}}, {"@type": "Question", "name": "Vocês atendem fora de Fortaleza?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. O atendimento é remoto para clientes de qualquer lugar e presencial em todo o Brasil."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "JITS", "item": "https://jits.dev.br/"}, {"@type": "ListItem", "position": 2, "name": "Sistemas sob medida", "item": "https://jits.dev.br/sistemas/"}]}]}</script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0872b762b6cc4ab59058999d9352dca9"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
 <header class="faixa topo">
   <div class="miolo">
     <a class="logo" href="/#inicio" aria-label="JITS, voltar ao início">
@@ -555,18 +566,18 @@ a.canal__valor { color: inherit; text-decoration: none; }
       <a class="menu__link" href="/#portfolio">Portfólio</a>
       <a class="menu__link" href="/#como-trabalhamos">Como trabalhamos</a>
       <a class="menu__link" href="/#sobre">Sobre</a>
-      <a class="idioma" href="https://jits.dev.br/en/custom-software/" hreflang="en" lang="en" aria-label="English version">EN</a>
+      <a class="idioma" href="https://jits.dev.br/en/custom-software/" hreflang="en" lang="en" aria-label="EN: English version">EN</a>
       <a class="botao botao--cheio" href="/#contato">Fale conosco</a>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="conteudo" tabindex="-1">
   <section class="faixa pagina-hero">
     <div class="miolo">
       <p class="rotulo"><a href="/#servicos">Serviços</a> · /sistemas</p>
       <h1>Sistemas sob medida para o jeito que a sua empresa trabalha<span class="cursor" aria-hidden="true"></span></h1>
-      <p class="hero__apoio">Software de gestão desenhado a partir dos seus processos. Em vez de adaptar a empresa a um pacote pronto, o sistema é que se adapta a ela. E, se você já tem um sistema antigo, nós o fazemos evoluir sem parar a operação.</p>
+      <p class="hero__apoio">Software de gestão desenhado a partir dos seus processos. Em vez de adaptar a empresa a um pacote pronto, o sistema é que se adapta a ela. E, se você já tem um sistema antigo, nós o modernizamos sem parar a operação.</p>
       <div class="acoes">
         <a class="botao botao--cheio" href="/#contato">Solicitar orçamento</a>
         <a class="botao botao--vazio" href="https://wa.me/5585997361426?text=Ol%C3%A1%2C%20JITS%21%20Quero%20conversar%20sobre%20um%20sistema%20sob%20medida." target="_blank" rel="noopener">Conversar no WhatsApp</a>
@@ -604,7 +615,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
           <h3>Relatórios e dados</h3>
-          <p>Relatórios confiáveis, tirados direto da operação, para decidir com número e não com palpite.</p>
+          <p>Relatórios confiáveis, tirados direto da operação, para decidir com números, e não com palpites.</p>
         </article>
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
@@ -641,7 +652,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
           <p>Projeto conceito de um sistema completo para uma rede com três filiais: pedidos, separação com leitor de código de barras, estoque por loja e relatórios gerenciais, tudo em tempo real.</p>
           <a class="projeto__link" href="/#portfolio">Ver o portfólio <span aria-hidden="true">→</span></a>
         </div>
-        <div class="projeto__tela"><span class="projeto__barra"><span class="terminal__pontos"><span></span><span></span><span></span></span><span class="projeto__url">Portal administrativo · Dashboard</span></span><img src="/portfolio/superbenfica-admin.jpg" width="1600" height="592" loading="lazy" alt="Portal administrativo do Super Benfica: faturamento, pedidos por status, faturamento por filial e estoque crítico" style="aspect-ratio:1600/592"></div>
+        <div class="projeto__tela"><span class="projeto__barra"><span class="terminal__pontos"><span></span><span></span><span></span></span><span class="projeto__url">Portal administrativo · Dashboard</span></span><img src="/portfolio/superbenfica-admin.jpg" srcset="/portfolio/superbenfica-admin-1000.jpg 1000w, /portfolio/superbenfica-admin.jpg 1600w" sizes="(max-width: 53.75em) 100vw, 34rem" width="1600" height="592" loading="lazy" alt="Portal administrativo do Super Benfica: faturamento, pedidos por status, faturamento por filial e estoque crítico" style="aspect-ratio:1600/592"></div>
       </div>
     </div>
   </section>
@@ -655,14 +666,14 @@ a.canal__valor { color: inherit; text-decoration: none; }
       <div class="faq">
         <details>
           <summary>Quanto tempo leva para desenvolver um sistema?</summary>
-          <p>Depende do tamanho. Trabalhamos em ciclos curtos, então você recebe versões para testar ao longo do caminho, em vez de esperar meses por uma entrega única. O prazo vem por escrito na proposta.</p>
+          <p>Depende do tamanho. Um sistema complexo, como um e-commerce, costuma levar de 3 a 6 meses. Trabalhamos em ciclos curtos, então você recebe versões para testar ao longo do caminho. O prazo vem por escrito na proposta.</p>
         </details>
         <details>
           <summary>Preciso trocar todo o meu sistema antigo de uma vez?</summary>
           <p>Não. Na maioria dos casos é melhor evoluir por partes: a operação continua rodando enquanto os módulos são modernizados um a um.</p>
         </details>
         <details>
-          <summary>O sistema fica sendo meu?</summary>
+          <summary>O sistema passa a ser da minha empresa?</summary>
           <p>Sim. O sistema é feito para a sua empresa, e as condições de entrega do código-fonte ficam definidas na proposta.</p>
         </details>
         <details>

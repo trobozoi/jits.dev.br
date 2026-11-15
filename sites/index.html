@@ -4,10 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Criação de sites e lojas virtuais · JITS</title>
-<meta name="description" content="A JITS cria sites institucionais, lojas virtuais e páginas de campanha rápidos, responsivos e prontos para aparecer no Google. Atendimento em Fortaleza, em todo o Brasil e remoto.">
+<meta name="description" content="Sites institucionais, lojas virtuais e landing pages rápidos, responsivos e prontos para o Google. Softhouse em Fortaleza, com atendimento em todo o Brasil.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <style>
 /* Layout: uma coluna escura de 1200px; o "cursor" vermelho da marca é o fio condutor — aparece no logo, no hero e em cada bloco. */
 :root {
@@ -68,6 +70,14 @@ p { margin: 0; }
     padding-right: max(1rem, env(safe-area-inset-right, 0px));
   }
 }
+
+/* Link para pular direto ao conteúdo: só aparece quando recebe o foco do teclado. */
+.pular {
+  position: absolute; left: 1rem; top: -10rem; z-index: 20;
+  padding: 0.75rem 1rem; background: var(--vermelho); color: var(--preto); font-weight: 600; text-decoration: none;
+}
+.pular:focus { top: 1rem; }
+main:focus { outline: none; }
 
 /* Marca */
 .logo { display: inline-flex; align-items: flex-end; gap: 0.25rem; text-decoration: none; position: relative; }
@@ -531,7 +541,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="JITS">
 <meta property="og:title" content="Criação de sites e lojas virtuais · JITS">
-<meta property="og:description" content="A JITS cria sites institucionais, lojas virtuais e páginas de campanha rápidos, responsivos e prontos para aparecer no Google. Atendimento em Fortaleza, em todo o Brasil e remoto.">
+<meta property="og:description" content="Sites institucionais, lojas virtuais e landing pages rápidos, responsivos e prontos para o Google. Softhouse em Fortaleza, com atendimento em todo o Brasil.">
 <meta property="og:url" content="https://jits.dev.br/sites/">
 <meta property="og:image" content="https://jits.dev.br/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -541,10 +551,11 @@ a.canal__valor { color: inherit; text-decoration: none; }
 <link rel="alternate" hreflang="en" href="https://jits.dev.br/en/websites/">
 <link rel="alternate" hreflang="x-default" href="https://jits.dev.br/sites/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "Sites e e-commerce", "description": "A JITS cria sites institucionais, lojas virtuais e páginas de campanha rápidos, responsivos e prontos para aparecer no Google. Atendimento em Fortaleza, em todo o Brasil e remoto.", "url": "https://jits.dev.br/sites/", "provider": {"@type": "ProfessionalService", "name": "JITS", "url": "https://jits.dev.br/"}, "areaServed": "BR"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Em quanto tempo o site fica pronto?", "acceptedAnswer": {"@type": "Answer", "text": "Um site institucional costuma ficar pronto em poucas semanas. Lojas virtuais levam mais, conforme o catálogo e as integrações. O prazo vem por escrito na proposta."}}, {"@type": "Question", "name": "Vocês cuidam de domínio, hospedagem e e-mail?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Ajudamos a registrar o domínio, publicar o site e configurar o e-mail profissional com o nome da sua empresa."}}, {"@type": "Question", "name": "O site vai aparecer no Google?", "acceptedAnswer": {"@type": "Answer", "text": "Entregamos o site preparado para a busca e cadastrado no Google. A posição depende também da concorrência e do tempo, e ninguém pode prometer o primeiro lugar."}}, {"@type": "Question", "name": "Consigo atualizar o conteúdo depois?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Definimos juntos a melhor forma: um painel para você editar ou um pacote de manutenção com a gente."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "JITS", "item": "https://jits.dev.br/"}, {"@type": "ListItem", "position": 2, "name": "Sites e e-commerce", "item": "https://jits.dev.br/sites/"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "Sites e e-commerce", "description": "Sites institucionais, lojas virtuais e landing pages rápidos, responsivos e prontos para o Google. Softhouse em Fortaleza, com atendimento em todo o Brasil.", "url": "https://jits.dev.br/sites/", "provider": {"@type": "ProfessionalService", "name": "JITS", "url": "https://jits.dev.br/"}, "areaServed": "BR"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Em quanto tempo o site fica pronto?", "acceptedAnswer": {"@type": "Answer", "text": "Um site institucional costuma ficar pronto em poucas semanas. Uma loja virtual, que tem mais pontos críticos, como pagamento e estoque, costuma levar de 3 a 6 meses. O prazo vem por escrito na proposta."}}, {"@type": "Question", "name": "Vocês cuidam de domínio, hospedagem e e-mail?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Ajudamos a registrar o domínio, publicar o site e configurar o e-mail profissional com o nome da sua empresa."}}, {"@type": "Question", "name": "O site vai aparecer no Google?", "acceptedAnswer": {"@type": "Answer", "text": "Entregamos o site preparado para a busca e cadastrado no Google. A posição depende também da concorrência e do tempo, e ninguém pode prometer o primeiro lugar."}}, {"@type": "Question", "name": "Consigo atualizar o conteúdo depois?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Definimos juntos a melhor forma: um painel para você editar ou um pacote de manutenção com a gente."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "JITS", "item": "https://jits.dev.br/"}, {"@type": "ListItem", "position": 2, "name": "Sites e e-commerce", "item": "https://jits.dev.br/sites/"}]}]}</script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0872b762b6cc4ab59058999d9352dca9"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
 <header class="faixa topo">
   <div class="miolo">
     <a class="logo" href="/#inicio" aria-label="JITS, voltar ao início">
@@ -555,13 +566,13 @@ a.canal__valor { color: inherit; text-decoration: none; }
       <a class="menu__link" href="/#portfolio">Portfólio</a>
       <a class="menu__link" href="/#como-trabalhamos">Como trabalhamos</a>
       <a class="menu__link" href="/#sobre">Sobre</a>
-      <a class="idioma" href="https://jits.dev.br/en/websites/" hreflang="en" lang="en" aria-label="English version">EN</a>
+      <a class="idioma" href="https://jits.dev.br/en/websites/" hreflang="en" lang="en" aria-label="EN: English version">EN</a>
       <a class="botao botao--cheio" href="/#contato">Fale conosco</a>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="conteudo" tabindex="-1">
   <section class="faixa pagina-hero">
     <div class="miolo">
       <p class="rotulo"><a href="/#servicos">Serviços</a> · /sites</p>
@@ -655,7 +666,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
       <div class="faq">
         <details>
           <summary>Em quanto tempo o site fica pronto?</summary>
-          <p>Um site institucional costuma ficar pronto em poucas semanas. Lojas virtuais levam mais, conforme o catálogo e as integrações. O prazo vem por escrito na proposta.</p>
+          <p>Um site institucional costuma ficar pronto em poucas semanas. Uma loja virtual, que tem mais pontos críticos, como pagamento e estoque, costuma levar de 3 a 6 meses. O prazo vem por escrito na proposta.</p>
         </details>
         <details>
           <summary>Vocês cuidam de domínio, hospedagem e e-mail?</summary>

@@ -4,10 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Consultoria em TI para empresas · JITS</title>
-<meta name="description" content="A JITS orienta empresas a escolher, organizar e manter a tecnologia certa: diagnóstico de processos, avaliação de sistemas legados, infraestrutura, nuvem e segurança da informação.">
+<meta name="description" content="Consultoria em TI: diagnóstico de processos, avaliação de sistemas legados, infraestrutura, nuvem e segurança da informação. Softhouse em Fortaleza.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <style>
 /* Layout: uma coluna escura de 1200px; o "cursor" vermelho da marca é o fio condutor — aparece no logo, no hero e em cada bloco. */
 :root {
@@ -68,6 +70,14 @@ p { margin: 0; }
     padding-right: max(1rem, env(safe-area-inset-right, 0px));
   }
 }
+
+/* Link para pular direto ao conteúdo: só aparece quando recebe o foco do teclado. */
+.pular {
+  position: absolute; left: 1rem; top: -10rem; z-index: 20;
+  padding: 0.75rem 1rem; background: var(--vermelho); color: var(--preto); font-weight: 600; text-decoration: none;
+}
+.pular:focus { top: 1rem; }
+main:focus { outline: none; }
 
 /* Marca */
 .logo { display: inline-flex; align-items: flex-end; gap: 0.25rem; text-decoration: none; position: relative; }
@@ -531,7 +541,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="JITS">
 <meta property="og:title" content="Consultoria em TI para empresas · JITS">
-<meta property="og:description" content="A JITS orienta empresas a escolher, organizar e manter a tecnologia certa: diagnóstico de processos, avaliação de sistemas legados, infraestrutura, nuvem e segurança da informação.">
+<meta property="og:description" content="Consultoria em TI: diagnóstico de processos, avaliação de sistemas legados, infraestrutura, nuvem e segurança da informação. Softhouse em Fortaleza.">
 <meta property="og:url" content="https://jits.dev.br/consultoria/">
 <meta property="og:image" content="https://jits.dev.br/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -541,10 +551,11 @@ a.canal__valor { color: inherit; text-decoration: none; }
 <link rel="alternate" hreflang="en" href="https://jits.dev.br/en/it-consulting/">
 <link rel="alternate" hreflang="x-default" href="https://jits.dev.br/consultoria/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "Consultoria em TI", "description": "A JITS orienta empresas a escolher, organizar e manter a tecnologia certa: diagnóstico de processos, avaliação de sistemas legados, infraestrutura, nuvem e segurança da informação.", "url": "https://jits.dev.br/consultoria/", "provider": {"@type": "ProfessionalService", "name": "JITS", "url": "https://jits.dev.br/"}, "areaServed": "BR"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Como funciona a consultoria?", "acceptedAnswer": {"@type": "Answer", "text": "Começa com uma conversa para entender o cenário. Depois fazemos o diagnóstico e entregamos um relatório com recomendações práticas e prioridades."}}, {"@type": "Question", "name": "Vocês só indicam ou também executam?", "acceptedAnswer": {"@type": "Answer", "text": "Você escolhe. Podemos apenas orientar, acompanhar a sua equipe ou outro fornecedor, ou executar as melhorias."}}, {"@type": "Question", "name": "Minha empresa é pequena. Faz sentido?", "acceptedAnswer": {"@type": "Answer", "text": "Faz. O trabalho é dimensionado para o tamanho do negócio, e muitas vezes uma conversa bem feita evita um investimento errado."}}, {"@type": "Question", "name": "O atendimento é presencial?", "acceptedAnswer": {"@type": "Answer", "text": "Pode ser remoto, para clientes de qualquer lugar, ou presencial em todo o Brasil."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "JITS", "item": "https://jits.dev.br/"}, {"@type": "ListItem", "position": 2, "name": "Consultoria em TI", "item": "https://jits.dev.br/consultoria/"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "Consultoria em TI", "description": "Consultoria em TI: diagnóstico de processos, avaliação de sistemas legados, infraestrutura, nuvem e segurança da informação. Softhouse em Fortaleza.", "url": "https://jits.dev.br/consultoria/", "provider": {"@type": "ProfessionalService", "name": "JITS", "url": "https://jits.dev.br/"}, "areaServed": "BR"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Como funciona a consultoria?", "acceptedAnswer": {"@type": "Answer", "text": "Começa com uma conversa para entender o cenário. Depois fazemos o diagnóstico e entregamos um relatório com recomendações práticas e prioridades. O trabalho costuma levar cerca de 1 mês."}}, {"@type": "Question", "name": "Vocês só indicam ou também executam?", "acceptedAnswer": {"@type": "Answer", "text": "Você escolhe. Podemos apenas orientar, acompanhar a sua equipe ou outro fornecedor, ou executar as melhorias."}}, {"@type": "Question", "name": "Minha empresa é pequena. Faz sentido?", "acceptedAnswer": {"@type": "Answer", "text": "Faz. O trabalho é dimensionado para o tamanho do negócio, e muitas vezes uma conversa bem feita evita um investimento errado."}}, {"@type": "Question", "name": "O atendimento é presencial?", "acceptedAnswer": {"@type": "Answer", "text": "Pode ser remoto, para clientes de qualquer lugar, ou presencial em todo o Brasil."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "JITS", "item": "https://jits.dev.br/"}, {"@type": "ListItem", "position": 2, "name": "Consultoria em TI", "item": "https://jits.dev.br/consultoria/"}]}]}</script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0872b762b6cc4ab59058999d9352dca9"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
 <header class="faixa topo">
   <div class="miolo">
     <a class="logo" href="/#inicio" aria-label="JITS, voltar ao início">
@@ -555,13 +566,13 @@ a.canal__valor { color: inherit; text-decoration: none; }
       <a class="menu__link" href="/#portfolio">Portfólio</a>
       <a class="menu__link" href="/#como-trabalhamos">Como trabalhamos</a>
       <a class="menu__link" href="/#sobre">Sobre</a>
-      <a class="idioma" href="https://jits.dev.br/en/it-consulting/" hreflang="en" lang="en" aria-label="English version">EN</a>
+      <a class="idioma" href="https://jits.dev.br/en/it-consulting/" hreflang="en" lang="en" aria-label="EN: English version">EN</a>
       <a class="botao botao--cheio" href="/#contato">Fale conosco</a>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="conteudo" tabindex="-1">
   <section class="faixa pagina-hero">
     <div class="miolo">
       <p class="rotulo"><a href="/#servicos">Serviços</a> · /consultoria</p>
@@ -584,7 +595,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
           <h3>Diagnóstico de processos</h3>
-          <p>Mapeamos como o trabalho acontece hoje e mostramos onde a tecnologia pode tirar retrabalho e erro.</p>
+          <p>Mapeamos como o trabalho acontece hoje e mostramos onde a tecnologia pode eliminar retrabalho e erros.</p>
         </article>
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
@@ -604,7 +615,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
           <h3>Segurança da informação</h3>
-          <p>Acessos, senhas, cópias de segurança e boas práticas para proteger os dados da empresa e dos clientes.</p>
+          <p>Controle de acesso, senhas, backups e boas práticas para proteger os dados da empresa e dos clientes.</p>
         </article>
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
@@ -641,7 +652,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
       <div class="faq">
         <details>
           <summary>Como funciona a consultoria?</summary>
-          <p>Começa com uma conversa para entender o cenário. Depois fazemos o diagnóstico e entregamos um relatório com recomendações práticas e prioridades.</p>
+          <p>Começa com uma conversa para entender o cenário. Depois fazemos o diagnóstico e entregamos um relatório com recomendações práticas e prioridades. O trabalho costuma levar cerca de 1 mês.</p>
         </details>
         <details>
           <summary>Vocês só indicam ou também executam?</summary>

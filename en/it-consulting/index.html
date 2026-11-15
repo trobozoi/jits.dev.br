@@ -4,10 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>IT consulting for businesses · JITS</title>
-<meta name="description" content="JITS helps companies choose, organize and maintain the right technology: process assessment, legacy system review, infrastructure, cloud and information security.">
+<meta name="description" content="IT consulting: process assessment, legacy system review, infrastructure, cloud and information security. Software house in Fortaleza, Brazil.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <style>
 /* Layout: uma coluna escura de 1200px; o "cursor" vermelho da marca é o fio condutor — aparece no logo, no hero e em cada bloco. */
 :root {
@@ -68,6 +70,14 @@ p { margin: 0; }
     padding-right: max(1rem, env(safe-area-inset-right, 0px));
   }
 }
+
+/* Link para pular direto ao conteúdo: só aparece quando recebe o foco do teclado. */
+.pular {
+  position: absolute; left: 1rem; top: -10rem; z-index: 20;
+  padding: 0.75rem 1rem; background: var(--vermelho); color: var(--preto); font-weight: 600; text-decoration: none;
+}
+.pular:focus { top: 1rem; }
+main:focus { outline: none; }
 
 /* Marca */
 .logo { display: inline-flex; align-items: flex-end; gap: 0.25rem; text-decoration: none; position: relative; }
@@ -531,7 +541,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="JITS">
 <meta property="og:title" content="IT consulting for businesses · JITS">
-<meta property="og:description" content="JITS helps companies choose, organize and maintain the right technology: process assessment, legacy system review, infrastructure, cloud and information security.">
+<meta property="og:description" content="IT consulting: process assessment, legacy system review, infrastructure, cloud and information security. Software house in Fortaleza, Brazil.">
 <meta property="og:url" content="https://jits.dev.br/en/it-consulting/">
 <meta property="og:image" content="https://jits.dev.br/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -541,10 +551,11 @@ a.canal__valor { color: inherit; text-decoration: none; }
 <link rel="alternate" hreflang="pt-BR" href="https://jits.dev.br/consultoria/">
 <link rel="alternate" hreflang="x-default" href="https://jits.dev.br/consultoria/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "IT consulting", "description": "JITS helps companies choose, organize and maintain the right technology: process assessment, legacy system review, infrastructure, cloud and information security.", "url": "https://jits.dev.br/en/it-consulting/", "provider": {"@type": "ProfessionalService", "name": "JITS", "url": "https://jits.dev.br/"}, "areaServed": "Worldwide"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How does the consulting work?", "acceptedAnswer": {"@type": "Answer", "text": "It starts with a conversation to understand the scenario. Then we run the assessment and deliver a report with practical recommendations and priorities."}}, {"@type": "Question", "name": "Do you only advise, or also execute?", "acceptedAnswer": {"@type": "Answer", "text": "You choose. We can simply advise, work alongside your team or another vendor, or carry out the improvements ourselves."}}, {"@type": "Question", "name": "My company is small. Does it make sense?", "acceptedAnswer": {"@type": "Answer", "text": "It does. The work is sized to the business, and a well-run conversation often prevents a wrong investment."}}, {"@type": "Question", "name": "Do you work remotely?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We work remotely with clients anywhere in the world, in English or Portuguese."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "JITS", "item": "https://jits.dev.br/en/"}, {"@type": "ListItem", "position": 2, "name": "IT consulting", "item": "https://jits.dev.br/en/it-consulting/"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "IT consulting", "description": "IT consulting: process assessment, legacy system review, infrastructure, cloud and information security. Software house in Fortaleza, Brazil.", "url": "https://jits.dev.br/en/it-consulting/", "provider": {"@type": "ProfessionalService", "name": "JITS", "url": "https://jits.dev.br/"}, "areaServed": "Worldwide"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How does the consulting work?", "acceptedAnswer": {"@type": "Answer", "text": "It starts with a conversation to understand the scenario. Then we run the assessment and deliver a report with practical recommendations and priorities. The work usually takes about 1 month."}}, {"@type": "Question", "name": "Do you only advise, or also execute?", "acceptedAnswer": {"@type": "Answer", "text": "You choose. We can simply advise, work alongside your team or another vendor, or carry out the improvements ourselves."}}, {"@type": "Question", "name": "My company is small. Does it make sense?", "acceptedAnswer": {"@type": "Answer", "text": "It does. The work is sized to the business, and a well-run conversation often prevents a wrong investment."}}, {"@type": "Question", "name": "Do you work remotely?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We work remotely with clients anywhere in the world, in English or Portuguese."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "JITS", "item": "https://jits.dev.br/en/"}, {"@type": "ListItem", "position": 2, "name": "IT consulting", "item": "https://jits.dev.br/en/it-consulting/"}]}]}</script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0872b762b6cc4ab59058999d9352dca9"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
+<a class="pular" href="#conteudo">Skip to content</a>
 <header class="faixa topo">
   <div class="miolo">
     <a class="logo" href="/en/#inicio" aria-label="JITS, back to top">
@@ -555,13 +566,13 @@ a.canal__valor { color: inherit; text-decoration: none; }
       <a class="menu__link" href="/en/#portfolio">Portfolio</a>
       <a class="menu__link" href="/en/#como-trabalhamos">How we work</a>
       <a class="menu__link" href="/en/#sobre">About</a>
-      <a class="idioma" href="https://jits.dev.br/consultoria/" hreflang="pt-BR" lang="pt-BR" aria-label="Versão em português">PT</a>
+      <a class="idioma" href="https://jits.dev.br/consultoria/" hreflang="pt-BR" lang="pt-BR" aria-label="PT: versão em português">PT</a>
       <a class="botao botao--cheio" href="/en/#contato">Contact us</a>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="conteudo" tabindex="-1">
   <section class="faixa pagina-hero">
     <div class="miolo">
       <p class="rotulo"><a href="/en/#servicos">Services</a> · /it-consulting</p>
@@ -604,7 +615,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
           <h3>Information security</h3>
-          <p>Access, passwords, backups and good practices to protect company and customer data.</p>
+          <p>Access control, passwords, backups and good practices to protect company and customer data.</p>
         </article>
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
@@ -641,7 +652,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
       <div class="faq">
         <details>
           <summary>How does the consulting work?</summary>
-          <p>It starts with a conversation to understand the scenario. Then we run the assessment and deliver a report with practical recommendations and priorities.</p>
+          <p>It starts with a conversation to understand the scenario. Then we run the assessment and deliver a report with practical recommendations and priorities. The work usually takes about 1 month.</p>
         </details>
         <details>
           <summary>Do you only advise, or also execute?</summary>

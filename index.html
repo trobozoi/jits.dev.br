@@ -3,11 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>JITS · Soluções inteligentes para a sua empresa</title>
-<meta name="description" content="JITS: soluções inteligentes para a sua empresa. Sistemas sob medida, aplicativos, sites e consultoria em TI.">
+<title>Desenvolvimento de sistemas e sites em Fortaleza · JITS</title>
+<meta name="description" content="Softhouse em Fortaleza: sistemas sob medida, modernização de sistemas legados, aplicativos, sites e consultoria em TI. Atendemos todo o Brasil.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <style>
 /* Layout: uma coluna escura de 1200px; o "cursor" vermelho da marca é o fio condutor — aparece no logo, no hero e em cada bloco. */
 :root {
@@ -68,6 +70,14 @@ p { margin: 0; }
     padding-right: max(1rem, env(safe-area-inset-right, 0px));
   }
 }
+
+/* Link para pular direto ao conteúdo: só aparece quando recebe o foco do teclado. */
+.pular {
+  position: absolute; left: 1rem; top: -10rem; z-index: 20;
+  padding: 0.75rem 1rem; background: var(--vermelho); color: var(--preto); font-weight: 600; text-decoration: none;
+}
+.pular:focus { top: 1rem; }
+main:focus { outline: none; }
 
 /* Marca */
 .logo { display: inline-flex; align-items: flex-end; gap: 0.25rem; text-decoration: none; position: relative; }
@@ -530,8 +540,8 @@ a.canal__valor { color: inherit; text-decoration: none; }
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="JITS">
-<meta property="og:title" content="JITS · Soluções inteligentes para a sua empresa">
-<meta property="og:description" content="Sistemas, aplicativos e sites feitos sob medida, com atendimento próximo e suporte de verdade.">
+<meta property="og:title" content="Desenvolvimento de sistemas e sites em Fortaleza · JITS">
+<meta property="og:description" content="A JITS desenvolve sistemas, aplicativos e sites sob medida e moderniza o sistema que a sua empresa já usa. Desde 2015, em Fortaleza.">
 <meta property="og:url" content="https://jits.dev.br/">
 <meta property="og:image" content="https://jits.dev.br/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -574,6 +584,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
 </head>
 <body>
 
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
 <header class="faixa topo">
   <div class="miolo">
     <a class="logo" href="#inicio" aria-label="JITS, voltar ao início">
@@ -584,19 +595,19 @@ a.canal__valor { color: inherit; text-decoration: none; }
       <a class="menu__link" href="#portfolio">Portfólio</a>
       <a class="menu__link" href="#como-trabalhamos">Como trabalhamos</a>
       <a class="menu__link" href="#sobre">Sobre</a>
-      <a class="idioma" href="https://jits.dev.br/en/" hreflang="en" lang="en" aria-label="English version">EN</a>
+      <a class="idioma" href="https://jits.dev.br/en/" hreflang="en" lang="en" aria-label="EN: English version">EN</a>
       <a class="botao botao--cheio" href="#contato">Fale conosco</a>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="conteudo" tabindex="-1">
   <section id="inicio" class="faixa hero">
     <div class="miolo">
       <div class="hero__texto">
         <p class="rotulo">Softhouse</p>
         <h1>Soluções inteligentes para a sua empresa<span class="cursor" aria-hidden="true"></span></h1>
-        <p class="hero__apoio">Sistemas, aplicativos e sites feitos sob medida, com atendimento próximo e suporte de verdade.</p>
+        <p class="hero__apoio">A JITS desenvolve sistemas, aplicativos e sites sob medida e moderniza o sistema que a sua empresa já usa. Desde 2015, em Fortaleza.</p>
         <div class="acoes">
           <a class="botao botao--cheio" href="#contato">Solicitar orçamento</a>
           <a class="botao botao--vazio" href="#servicos">Ver serviços</a>
@@ -641,7 +652,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
             <li>Modernização de sistemas legados</li>
             <li>Integração com sistemas existentes</li>
           </ul>
-          <a class="servico__mais" href="https://jits.dev.br/sistemas/">Saiba mais <span aria-hidden="true">→</span><span class="sr"> sobre sistemas sob medida</span></a>
+          <a class="servico__mais" href="https://jits.dev.br/sistemas/">Ver sistemas sob medida <span aria-hidden="true">→</span></a>
         </article>
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
@@ -653,7 +664,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
             <li>Apps para clientes</li>
             <li>Publicação nas lojas</li>
           </ul>
-          <a class="servico__mais" href="https://jits.dev.br/aplicativos/">Saiba mais <span aria-hidden="true">→</span><span class="sr"> sobre aplicativos</span></a>
+          <a class="servico__mais" href="https://jits.dev.br/aplicativos/">Ver aplicativos <span aria-hidden="true">→</span></a>
         </article>
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
@@ -665,7 +676,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
             <li>Lojas virtuais</li>
             <li>Páginas de campanha</li>
           </ul>
-          <a class="servico__mais" href="https://jits.dev.br/sites/">Saiba mais <span aria-hidden="true">→</span><span class="sr"> sobre sites e e-commerce</span></a>
+          <a class="servico__mais" href="https://jits.dev.br/sites/">Ver sites e e-commerce <span aria-hidden="true">→</span></a>
         </article>
         <article class="servico">
           <span class="servico__marca" aria-hidden="true"></span>
@@ -677,7 +688,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
             <li>Infraestrutura e nuvem</li>
             <li>Segurança da informação</li>
           </ul>
-          <a class="servico__mais" href="https://jits.dev.br/consultoria/">Saiba mais <span aria-hidden="true">→</span><span class="sr"> sobre consultoria em TI</span></a>
+          <a class="servico__mais" href="https://jits.dev.br/consultoria/">Ver consultoria em TI <span aria-hidden="true">→</span></a>
         </article>
       </div>
     </div>
@@ -688,7 +699,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
       <div class="secao__cabeca">
         <p class="rotulo">Portfólio</p>
         <h2>Projetos conceito</h2>
-        <p>Sistemas, sites e jogos que a JITS criou para mostrar como pensa arquitetura, identidade e experiência de uso. Os sites e jogos estão no ar, e o código dos sistemas e dos jogos está aberto no GitHub.</p>
+        <p>Sistemas, sites e jogos que a JITS criou para mostrar o seu cuidado com arquitetura, identidade visual e experiência de uso. Os sites e jogos estão no ar, e o código dos sistemas e dos jogos está aberto no GitHub.</p>
       </div>
       <article class="vitrine projeto">
         <div class="vitrine__topo">
@@ -699,14 +710,14 @@ a.canal__valor { color: inherit; text-decoration: none; }
             <ul class="projeto__tags">
               <li class="projeto__tag--conceito">Projeto conceito</li>
               <li>Tempo real</li>
-              <li>Multi-filial</li>
+              <li>Multifilial</li>
               <li>5 perfis de acesso</li>
             </ul>
             <ul class="partes">
-                <li><strong>API REST</strong><span>Django · WebSocket · JWT</span><a href="https://github.com/trobozoi/superbenfica-api" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Código no GitHub<span class="sr"> do API REST do Super Benfica (abre em nova aba)</span></a></li>
-                <li><strong>Loja online</strong><span>Next.js · React</span><a href="https://github.com/trobozoi/superbenfica-web" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Código no GitHub<span class="sr"> do Loja online do Super Benfica (abre em nova aba)</span></a></li>
-                <li><strong>Portal administrativo</strong><span>Next.js · React</span><a href="https://github.com/trobozoi/superbenfica-admin" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Código no GitHub<span class="sr"> do Portal administrativo do Super Benfica (abre em nova aba)</span></a></li>
-                <li><strong>App mobile</strong><span>React Native · Expo</span><a href="https://github.com/trobozoi/superbenfica-mobile" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Código no GitHub<span class="sr"> do App mobile do Super Benfica (abre em nova aba)</span></a></li>
+                <li><strong>API REST</strong><span>Django · WebSocket · JWT</span><a href="https://github.com/trobozoi/superbenfica-api" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Código no GitHub<span class="sr">: API REST do Super Benfica (abre em nova aba)</span></a></li>
+                <li><strong>Loja online</strong><span>Next.js · React</span><a href="https://github.com/trobozoi/superbenfica-web" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Código no GitHub<span class="sr">: loja online do Super Benfica (abre em nova aba)</span></a></li>
+                <li><strong>Portal administrativo</strong><span>Next.js · React</span><a href="https://github.com/trobozoi/superbenfica-admin" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Código no GitHub<span class="sr">: portal administrativo do Super Benfica (abre em nova aba)</span></a></li>
+                <li><strong>App mobile</strong><span>React Native · Expo</span><a href="https://github.com/trobozoi/superbenfica-mobile" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Código no GitHub<span class="sr">: app mobile do Super Benfica (abre em nova aba)</span></a></li>
             </ul>
           </div>
           <figure class="celulares-wrap">
@@ -734,12 +745,12 @@ a.canal__valor { color: inherit; text-decoration: none; }
         <article class="projeto">
           <a class="projeto__tela" href="https://aurum-estetica.vercel.app/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
             <span class="projeto__barra"><span class="terminal__pontos"><span></span><span></span><span></span></span><span class="projeto__url">aurum-estetica.vercel.app</span></span>
-            <img src="portfolio/aurum-bem-estar.jpg" width="1280" height="800" loading="lazy" alt="Aurum Estética Avançada">
+            <img src="portfolio/aurum-bem-estar.jpg" width="1280" height="800" loading="lazy" alt="Página inicial do site conceito Aurum Estética Avançada">
           </a>
           <div class="projeto__info">
             <span class="servico__rota">/estetica · Lisboa, Portugal</span>
             <h3>Aurum Estética Avançada &amp; Bem-Estar</h3>
-            <p>Conceito de site institucional para uma clínica de estética em Lisboa. Visual claro e elegante, com tratamentos, equipa, avaliações de clientes e agendamento online sempre à mão.</p>
+            <p>Conceito de site institucional para uma clínica de estética em Lisboa. Visual claro e elegante, com tratamentos, equipe, avaliações de clientes e agendamento online sempre à mão.</p>
             <ul class="projeto__tags">
               <li class="projeto__tag--conceito">Projeto conceito</li>
               <li>Site institucional</li>
@@ -752,12 +763,12 @@ a.canal__valor { color: inherit; text-decoration: none; }
         <article class="projeto">
           <a class="projeto__tela" href="https://aurum-estetica-gray.vercel.app/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
             <span class="projeto__barra"><span class="terminal__pontos"><span></span><span></span><span></span></span><span class="projeto__url">aurum-estetica-gray.vercel.app</span></span>
-            <img src="portfolio/aurum-automotiva.jpg" width="1280" height="800" loading="lazy" alt="Aurum Estética Automotiva">
+            <img src="portfolio/aurum-automotiva.jpg" width="1280" height="800" loading="lazy" alt="Página inicial do site conceito Aurum Estética Automotiva">
           </a>
           <div class="projeto__info">
             <span class="servico__rota">/automotivo · São Paulo, Brasil</span>
             <h3>Aurum Estética Automotiva</h3>
-            <p>Conceito de site de alto padrão para uma estética automotiva. Serviços com preços, processo em cinco etapas, comparador de antes e depois para arrastar e agendamento direto pelo WhatsApp.</p>
+            <p>Conceito de site institucional de alto padrão para uma estética automotiva. Serviços com preços, processo em cinco etapas, comparador de antes e depois para arrastar e agendamento direto pelo WhatsApp.</p>
             <ul class="projeto__tags">
               <li class="projeto__tag--conceito">Projeto conceito</li>
               <li>Landing page</li>
@@ -770,7 +781,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
         <article class="projeto">
           <a class="projeto__tela" href="https://trobozoi.github.io/javascript_xadrez/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
             <span class="projeto__barra"><span class="terminal__pontos"><span></span><span></span><span></span></span><span class="projeto__url">trobozoi.github.io/javascript_xadrez</span></span>
-            <img src="portfolio/jogo-xadrez.jpg" width="1280" height="800" loading="lazy" alt="Xadrez">
+            <img src="portfolio/jogo-xadrez.jpg" width="1280" height="800" loading="lazy" alt="Partida do jogo de xadrez contra o computador">
           </a>
           <div class="projeto__info">
             <span class="servico__rota">/jogos · navegador</span>
@@ -783,14 +794,14 @@ a.canal__valor { color: inherit; text-decoration: none; }
             </ul>
             <div class="projeto__links">
               <a class="projeto__link" href="https://trobozoi.github.io/javascript_xadrez/" target="_blank" rel="noopener">Jogar agora <span aria-hidden="true">↗</span><span class="sr"> Xadrez (abre em nova aba)</span></a>
-              <a class="projeto__link" href="https://github.com/trobozoi/javascript_xadrez" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Código no GitHub<span class="sr"> do Xadrez (abre em nova aba)</span></a>
+              <a class="projeto__link" href="https://github.com/trobozoi/javascript_xadrez" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Código no GitHub<span class="sr">: jogo de xadrez (abre em nova aba)</span></a>
             </div>
           </div>
         </article>
         <article class="projeto">
           <a class="projeto__tela" href="https://trobozoi.github.io/javascript_dama/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
             <span class="projeto__barra"><span class="terminal__pontos"><span></span><span></span><span></span></span><span class="projeto__url">trobozoi.github.io/javascript_dama</span></span>
-            <img src="portfolio/jogo-damas.jpg" width="1280" height="800" loading="lazy" alt="Damas Brasileiras">
+            <img src="portfolio/jogo-damas.jpg" width="1280" height="800" loading="lazy" alt="Partida do jogo Damas Brasileiras">
           </a>
           <div class="projeto__info">
             <span class="servico__rota">/jogos · navegador</span>
@@ -804,7 +815,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
             </ul>
             <div class="projeto__links">
               <a class="projeto__link" href="https://trobozoi.github.io/javascript_dama/" target="_blank" rel="noopener">Jogar agora <span aria-hidden="true">↗</span><span class="sr"> Damas Brasileiras (abre em nova aba)</span></a>
-              <a class="projeto__link" href="https://github.com/trobozoi/javascript_dama" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Código no GitHub<span class="sr"> do Damas Brasileiras (abre em nova aba)</span></a>
+              <a class="projeto__link" href="https://github.com/trobozoi/javascript_dama" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Código no GitHub<span class="sr">: jogo Damas Brasileiras (abre em nova aba)</span></a>
             </div>
           </div>
         </article>
@@ -838,7 +849,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
         <li class="etapa">
           <span class="etapa__num">04 · sustentar</span>
           <h3>Entrega e suporte</h3>
-          <p>Treinamos a equipe e seguimos ao seu lado com manutenção e melhorias.</p>
+          <p>Treinamos a equipe, corrigimos sem custo os erros do primeiro mês e seguimos ao seu lado com manutenção e melhorias.</p>
         </li>
       </ol>
       <div class="stack" id="tecnologias">
@@ -859,14 +870,14 @@ a.canal__valor { color: inherit; text-decoration: none; }
       <div class="sobre">
         <div class="sobre__texto">
           <p class="rotulo">Sobre</p>
-          <h2>Sempre pronta para a próxima solução</h2>
+          <h2>Mais de dez anos fazendo sistemas para indústria e comércio</h2>
           <p>O bloco vermelho depois do nome JITS lembra o cursor de um terminal, piscando à espera do próximo comando. É assim que trabalhamos: atentos ao que a sua empresa precisa e prontos para transformar isso em software.</p>
           <p>A JITS nasceu em janeiro de 2015, em Fortaleza, fundada por Jailton Araújo. Antes dela, Jailton passou anos em outras empresas de tecnologia, como terceirizado, desenvolvendo produtos e mantendo sistemas legados. Com a JITS, essa experiência passou a ter casa própria. O nome conta a história: <strong>J</strong>ailton <strong>I</strong>nformation <strong>T</strong>echnology <strong>S</strong>olutions.</p>
           <p>Atendemos empresas de qualquer segmento, com experiência especial em indústria e comércio. Uma das especialidades da casa é evoluir sistemas legados, melhorando o que já existe com foco nos objetivos do negócio. O atendimento é remoto para clientes de qualquer lugar do mundo e presencial em todo o Brasil. Em projetos maiores, a JITS reúne profissionais de confiança com quem já trabalhou.</p>
           <div class="valores">
-            <div class="valor"><strong>Entrega rápida</strong><span>Versões funcionando em pouco tempo.</span></div>
-            <div class="valor"><strong>Qualidade</strong><span>Código bem feito, pronto para crescer.</span></div>
-            <div class="valor"><strong>Pagamento flexível</strong><span>Condições que cabem no seu projeto.</span></div>
+            <div class="valor"><strong>Prazo por escrito</strong><span>Cerca de 1 mês para uma consultoria; de 3 a 6 meses para um sistema complexo, como um e-commerce.</span></div>
+            <div class="valor"><strong>1 mês de correções sem custo</strong><span>Fazemos testes automatizados e unitários. Se surgir um erro no mês de testes, corrigimos sem custo e a contagem recomeça.</span></div>
+            <div class="valor"><strong>Nada a pagar no início</strong><span>Na condição padrão, 50% na entrega e 50% após 1 mês sem erros. Se desistir durante o desenvolvimento, você não paga nada.</span></div>
           </div>
         </div>
         <div class="icone-marca" role="img" aria-label="Ícone da JITS: letra j com o cursor">
