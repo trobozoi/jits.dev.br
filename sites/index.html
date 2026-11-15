@@ -149,7 +149,7 @@ p { margin: 0; }
 .terminal {
   background: var(--grafite); border: 1px solid #2E2E2E;
   font-family: var(--f-mono); font-size: 0.875rem; line-height: 1.75;
-  min-width: 0;
+  min-width: 0; margin: 0;
 }
 .terminal__barra {
   display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
@@ -254,7 +254,8 @@ p { margin: 0; }
 .partes a { align-self: flex-start; display: inline-flex; align-items: center; gap: 0.375rem; min-height: 2.75rem; font-size: 0.875rem; font-weight: 600; color: var(--vermelho); text-decoration: none; }
 @media (hover: hover) and (pointer: fine) { .partes a:hover { color: var(--vermelho-claro); } }
 .partes svg { width: 16px; height: 16px; flex: none; }
-.celulares { display: flex; justify-content: center; align-items: flex-end; gap: clamp(10px, 2vw, 20px); margin: 0; }
+.celulares { display: flex; justify-content: center; align-items: flex-end; gap: clamp(10px, 2vw, 20px); margin: 0; padding-top: 28px; }
+.celulares-wrap { margin: 0; }
 .celular {
   flex: 1 1 0; max-width: 190px; min-width: 0; margin: 0;
   background: #000; border: 1px solid #333; border-radius: clamp(14px, 2.4vw, 26px);
@@ -274,7 +275,6 @@ p { margin: 0; }
 @media (hover: hover) and (pointer: fine) { .vitrine.projeto:hover .projeto__tela img { transform: none; } }
 @media (hover: hover) and (pointer: fine) { .telas figure:hover .projeto__tela { border-color: var(--vermelho); } }
 @media (hover: hover) and (pointer: fine) { .telas figure:hover .projeto__tela img { transform: scale(1.03); } }
-.celulares { padding-top: 28px; }
 @media (max-width: 47.5em) { .telas .tela--larga img { aspect-ratio: 1000 / 592; object-position: left top; } }
 .projeto__falha {
   display: grid; place-items: center; aspect-ratio: 16 / 10; padding: 1.5rem; text-align: center;
@@ -369,7 +369,10 @@ p { margin: 0; }
 .campo__erro[hidden] { display: none; }
 .form__status { font-size: 0.9375rem; min-height: 1.5em; }
 .form__status.ok { color: var(--branco); }
-.form__status.ok::before { content: ""; display: inline-block; width: 14px; height: 5px; background: var(--vermelho); margin-right: 0.625rem; vertical-align: middle; }
+.form__status.ok { animation: status-surge .3s var(--ease-out) both; }
+@keyframes status-surge { from { opacity: 0; } }
+@keyframes barra-cresce { from { transform: scaleX(0.3); } }
+.form__status.ok::before { transform-origin: left center; animation: barra-cresce .3s var(--ease-out) both; content: ""; display: inline-block; width: 14px; height: 5px; background: var(--vermelho); margin-right: 0.625rem; vertical-align: middle; }
 .form__status.erro { color: var(--vermelho-claro); }
 @media (max-width: 53.75em) { .contato .miolo { grid-template-columns: minmax(0, 1fr); padding-block: 4.5rem; } }
 .contato h2 { font-weight: 700; font-size: clamp(2rem, 4.4vw, 3.2rem); line-height: 1.06; letter-spacing: -0.02em; }
@@ -398,6 +401,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
   padding-block: 2.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
   gap: 1.25rem; font-size: 0.875rem; color: var(--texto-suave);
 }
+.rodape .logo__nome { font-size: 30px; }
 .rodape nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; }
 .rodape nav a { color: var(--texto-suave); text-decoration: none; padding: 0.625rem 0; }
 @media (hover: hover) and (pointer: fine) { .rodape nav a:hover { color: var(--vermelho); } }
@@ -518,7 +522,8 @@ a.canal__valor { color: inherit; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .cursor { animation: none; }
-  @media (hover: hover) and (pointer: fine) { .botao:active, .whats:hover, .whats:active, .projeto__tela img { transform: none !important; } }
+  .botao:active, .whats:hover, .whats:active, .projeto__tela img { transform: none !important; }
+  .form__status.ok::before { animation: none; }
 }
 </style>
 <meta name="theme-color" content="#0A0A0A">
@@ -691,7 +696,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
 <footer class="faixa rodape">
   <div class="miolo">
     <a class="logo" href="/#inicio" aria-label="JITS, voltar ao início">
-      <span class="logo__nome" style="font-size:30px">jits</span><span class="cursor" aria-hidden="true"></span>
+      <span class="logo__nome">jits</span><span class="cursor" aria-hidden="true"></span>
     </a>
     <nav aria-label="Rodapé">
       <a href="/#servicos">Serviços</a>

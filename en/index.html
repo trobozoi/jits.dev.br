@@ -149,7 +149,7 @@ p { margin: 0; }
 .terminal {
   background: var(--grafite); border: 1px solid #2E2E2E;
   font-family: var(--f-mono); font-size: 0.875rem; line-height: 1.75;
-  min-width: 0;
+  min-width: 0; margin: 0;
 }
 .terminal__barra {
   display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
@@ -254,7 +254,8 @@ p { margin: 0; }
 .partes a { align-self: flex-start; display: inline-flex; align-items: center; gap: 0.375rem; min-height: 2.75rem; font-size: 0.875rem; font-weight: 600; color: var(--vermelho); text-decoration: none; }
 @media (hover: hover) and (pointer: fine) { .partes a:hover { color: var(--vermelho-claro); } }
 .partes svg { width: 16px; height: 16px; flex: none; }
-.celulares { display: flex; justify-content: center; align-items: flex-end; gap: clamp(10px, 2vw, 20px); margin: 0; }
+.celulares { display: flex; justify-content: center; align-items: flex-end; gap: clamp(10px, 2vw, 20px); margin: 0; padding-top: 28px; }
+.celulares-wrap { margin: 0; }
 .celular {
   flex: 1 1 0; max-width: 190px; min-width: 0; margin: 0;
   background: #000; border: 1px solid #333; border-radius: clamp(14px, 2.4vw, 26px);
@@ -274,7 +275,6 @@ p { margin: 0; }
 @media (hover: hover) and (pointer: fine) { .vitrine.projeto:hover .projeto__tela img { transform: none; } }
 @media (hover: hover) and (pointer: fine) { .telas figure:hover .projeto__tela { border-color: var(--vermelho); } }
 @media (hover: hover) and (pointer: fine) { .telas figure:hover .projeto__tela img { transform: scale(1.03); } }
-.celulares { padding-top: 28px; }
 @media (max-width: 47.5em) { .telas .tela--larga img { aspect-ratio: 1000 / 592; object-position: left top; } }
 .projeto__falha {
   display: grid; place-items: center; aspect-ratio: 16 / 10; padding: 1.5rem; text-align: center;
@@ -369,7 +369,10 @@ p { margin: 0; }
 .campo__erro[hidden] { display: none; }
 .form__status { font-size: 0.9375rem; min-height: 1.5em; }
 .form__status.ok { color: var(--branco); }
-.form__status.ok::before { content: ""; display: inline-block; width: 14px; height: 5px; background: var(--vermelho); margin-right: 0.625rem; vertical-align: middle; }
+.form__status.ok { animation: status-surge .3s var(--ease-out) both; }
+@keyframes status-surge { from { opacity: 0; } }
+@keyframes barra-cresce { from { transform: scaleX(0.3); } }
+.form__status.ok::before { transform-origin: left center; animation: barra-cresce .3s var(--ease-out) both; content: ""; display: inline-block; width: 14px; height: 5px; background: var(--vermelho); margin-right: 0.625rem; vertical-align: middle; }
 .form__status.erro { color: var(--vermelho-claro); }
 @media (max-width: 53.75em) { .contato .miolo { grid-template-columns: minmax(0, 1fr); padding-block: 4.5rem; } }
 .contato h2 { font-weight: 700; font-size: clamp(2rem, 4.4vw, 3.2rem); line-height: 1.06; letter-spacing: -0.02em; }
@@ -398,6 +401,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
   padding-block: 2.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
   gap: 1.25rem; font-size: 0.875rem; color: var(--texto-suave);
 }
+.rodape .logo__nome { font-size: 30px; }
 .rodape nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; }
 .rodape nav a { color: var(--texto-suave); text-decoration: none; padding: 0.625rem 0; }
 @media (hover: hover) and (pointer: fine) { .rodape nav a:hover { color: var(--vermelho); } }
@@ -518,7 +522,8 @@ a.canal__valor { color: inherit; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .cursor { animation: none; }
-  @media (hover: hover) and (pointer: fine) { .botao:active, .whats:hover, .whats:active, .projeto__tela img { transform: none !important; } }
+  .botao:active, .whats:hover, .whats:active, .projeto__tela img { transform: none !important; }
+  .form__status.ok::before { animation: none; }
 }
 </style>
 <meta name="theme-color" content="#0A0A0A">
@@ -562,7 +567,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
     ]
   },
   "address": { "@type": "PostalAddress", "addressLocality": "Fortaleza", "addressRegion": "CE", "addressCountry": "BR" },
-  "areaServed": "BR",
+  "areaServed": "Worldwide",
   "knowsAbout": ["Custom software development", "Legacy system modernization", "Mobile apps", "Websites and e-commerce", "IT consulting"]
 }
 </script>
@@ -598,7 +603,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
         </div>
       </div>
 
-      <figure class="terminal" aria-label="Illustration: a terminal showing the stages of a JITS project" style="margin:0">
+      <figure class="terminal" aria-label="Illustration: a terminal showing the stages of a JITS project">
         <div class="terminal__barra">
           <div class="terminal__pontos" aria-hidden="true"><span></span><span></span><span></span></div>
           <button class="terminal__repetir" id="terminal-repetir" type="button" hidden aria-label="Replay the terminal animation">↻ replay</button>
@@ -704,7 +709,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
                 <li><strong>Mobile app</strong><span>React Native · Expo</span><a href="https://github.com/trobozoi/superbenfica-mobile" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Code on GitHub<span class="sr"> for the Super Benfica mobile app (opens in a new tab)</span></a></li>
             </ul>
           </div>
-          <figure class="celulares-wrap" style="margin:0">
+          <figure class="celulares-wrap">
             <div class="celulares">
               <div class="celular"><img src="/portfolio/superbenfica-app-inicio.jpg" width="606" height="1150" loading="lazy" alt="Super Benfica app: home screen with search, order in progress, categories and featured products"></div>
               <div class="celular"><img src="/portfolio/superbenfica-app-pedido.jpg" width="606" height="1150" loading="lazy" alt="Super Benfica app: live order tracking, at the Picked stage"></div>
@@ -956,7 +961,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
 <footer class="faixa rodape">
   <div class="miolo">
     <a class="logo" href="#inicio" aria-label="JITS, back to top">
-      <span class="logo__nome" style="font-size:30px">jits</span><span class="cursor" aria-hidden="true"></span>
+      <span class="logo__nome">jits</span><span class="cursor" aria-hidden="true"></span>
     </a>
     <nav aria-label="Footer">
       <a href="#servicos">Services</a>
@@ -1009,7 +1014,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
     function trocar() {
       var caixa = document.createElement('span');
       caixa.className = 'projeto__falha';
-      caixa.textContent = img.alt || 'Imagem indisponível';
+      caixa.textContent = img.alt || 'Image unavailable';
       if (img.style.aspectRatio) caixa.style.aspectRatio = img.style.aspectRatio;
       else if (img.width && img.height) caixa.style.aspectRatio = img.getAttribute('width') + ' / ' + img.getAttribute('height');
       img.replaceWith(caixa);
@@ -1105,11 +1110,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
       });
       if (invalidos.length) {
         invalidos[0].focus();
-        var el = invalidos[0];
-        var msg = el.type === 'checkbox' ? 'To send, please tick that you agree to the Privacy Policy.'
-          : el.type === 'email' && el.value ? 'Please check the email address: it looks incomplete.'
-          : 'Please fill in the required fields: name, email, what you need and the message.';
-        avisar(msg, 'erro');
+        avisar('Please check the highlighted fields above.', 'erro');
         return;
       }
 
@@ -1135,6 +1136,7 @@ a.canal__valor { color: inherit; text-decoration: none; }
         .then(function (res) {
           if (!res.success) throw new Error(res.message || 'falha');
           form.reset();
+          mexidos = {};
           avisar('Message sent. We will reply to the email address you provided.', 'ok');
         })
         .catch(function () {
